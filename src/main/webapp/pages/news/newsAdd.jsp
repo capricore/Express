@@ -102,7 +102,7 @@
 								<div class="control-group">
 									<label class="control-label">文章类别</label>
 										<div class="controls">
-											<select data-placeholder="请选择文章类别" class="chosen span6" tabindex="-1" id="selS0V" name="newstype">
+											<select data-placeholder="请选择文章类别" class="chosen span6" tabindex="-1" id="selS0V" name="type">
 											<option value=""></option>
 											<optgroup label="关于协会">
 												<option value="11">协会简介</option>
