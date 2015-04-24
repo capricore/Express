@@ -20,7 +20,7 @@ public class Usertest {
 		UserDao userDao = (UserDao) context.getBean("userDao");
 
 		User user = new User();
-		user.setUserid("18");
+		user.setUserid("19");
 		user.setUsername("2");
 		user.setCompid("2");
 		user.setPasswd("2");
