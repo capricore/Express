@@ -2,11 +2,14 @@ package com.express.daoImp;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.express.bean.News;
 import com.express.dao.BaseDao;
 import com.express.dao.NewsDao;
 import com.express.query.NewsQuery;
 
+@Repository
 public class NewsDaoImp extends BaseDao implements NewsDao{
 
 	@SuppressWarnings("unchecked")

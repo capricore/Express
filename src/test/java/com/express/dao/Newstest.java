@@ -4,12 +4,15 @@ import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.express.bean.News;
 
 public class Newstest {
+	
+	
 	public static void main(String[] args) {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -40,7 +43,7 @@ public class Newstest {
 
 			System.out.println(element.getTitle());
 			System.out.println(element.getContent());
+		
 		}
 	}
-
 }

@@ -2,10 +2,13 @@ package com.express.daoImp;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.express.bean.User;
 import com.express.dao.BaseDao;
 import com.express.dao.UserDao;
 
+@Repository
 public class UserDaoImp extends BaseDao implements UserDao{
 	
 	@SuppressWarnings("unchecked")
