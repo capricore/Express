@@ -2,6 +2,7 @@ package com.express.daoImp;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import com.express.bean.User;
@@ -11,13 +12,15 @@ import com.express.dao.UserDao;
 @Repository
 public class UserDaoImp extends BaseDao implements UserDao{
 	
+	private static final Logger logger = Logger.getLogger(UserDaoImp.class);  
+	
 	@SuppressWarnings("unchecked")
 	public List<User> getUserList() {
 		List<User> users = null;
 		try {
 			users = getSqlMapClientTemplate().queryForList("getUserList");
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("获取用户信息列表出错！" +  ",errMsg=" + e.getMessage());
 		}
 		return users;  
 	}
@@ -27,7 +30,7 @@ public class UserDaoImp extends BaseDao implements UserDao{
 		try {
 			user = (User) getSqlMapClientTemplate().queryForObject("getUserByUserName",username);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("根据用户姓名获取用户信息出错！" +  ",errMsg=" + e.getMessage());
 		}
 		return user;  
 	}
@@ -37,7 +40,7 @@ public class UserDaoImp extends BaseDao implements UserDao{
 		try {
 			user = (User) getSqlMapClientTemplate().queryForObject("getUserByUserName",userid);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("根据用户id获取用户信息出错！" +  ",errMsg=" + e.getMessage());
 		}
 		return user;   
 	}
@@ -48,7 +51,7 @@ public class UserDaoImp extends BaseDao implements UserDao{
 		try {
 			object =(String) getSqlMapClientTemplate().insert("addUser", user);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("添加用户信息出错！" +  ",errMsg=" + e.getMessage());
 		}
 		if (object != null) {
 			flag = true;

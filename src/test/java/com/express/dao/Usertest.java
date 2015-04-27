@@ -30,11 +30,8 @@ public class Usertest {
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		user.setRestime(timestamp);
 
-		if (userDao.addUser(user)) {
-			System.out.println("添加成功");
-		}else {
-			System.out.println("添加失败");
-		}
+		userDao.addUser(user);
+	
 
 		System.out.println("获得全查询列表");
 		List<User> result = new ArrayList<User>();

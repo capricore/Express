@@ -2,6 +2,7 @@ package com.express.daoImp;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import com.express.bean.News;
@@ -11,6 +12,8 @@ import com.express.query.NewsQuery;
 
 @Repository
 public class NewsDaoImp extends BaseDao implements NewsDao{
+	
+	private static final Logger logger = Logger.getLogger(NewsDaoImp.class);  
 
 	@SuppressWarnings("unchecked")
 	public List<News> getNewsListByNewsType(int newstype) {
@@ -18,7 +21,7 @@ public class NewsDaoImp extends BaseDao implements NewsDao{
 		try {
 			news = getSqlMapClientTemplate().queryForList("getNewsListByNewsType", newstype);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("根据新闻类型获取新闻信息出错！" +  ",errMsg=" + e.getMessage());
 		}
 		return news; 
 	}
@@ -32,7 +35,7 @@ public class NewsDaoImp extends BaseDao implements NewsDao{
 		try {
 			news = getSqlMapClientTemplate().queryForList("getNewsListByNewsTypeAndSubType", newsQuery);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("根据新闻类型和子类型获取新闻信息出错！" +  ",errMsg=" + e.getMessage());
 		}
 		return news;
 	}
@@ -42,7 +45,7 @@ public class NewsDaoImp extends BaseDao implements NewsDao{
 		try {
 			news = (News) getSqlMapClientTemplate().queryForObject("getByNewsId",newsid);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("根据新闻id获取新闻信息出错！" +  ",errMsg=" + e.getMessage());
 		}
 		return news; 
 	}
@@ -53,7 +56,7 @@ public class NewsDaoImp extends BaseDao implements NewsDao{
 		try {
 			object =(String) getSqlMapClientTemplate().insert("addNews", news);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("添加新闻信息出错！" +  ",errMsg=" + e.getMessage());
 		}
 		if (object != null) {
 			flag = true;
@@ -67,7 +70,7 @@ public class NewsDaoImp extends BaseDao implements NewsDao{
 		try {
 			object =(Integer) getSqlMapClientTemplate().update("updateNews", news);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("更新新闻信息出错！" +  ",errMsg=" + e.getMessage());
 		}
 		if (object != null) {
 			flag = true;
