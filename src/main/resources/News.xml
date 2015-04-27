@@ -7,19 +7,19 @@
 	<!-- 根据newsid获得新闻 -->
 	<select id="getByNewsId" parameterClass="String"
 		resultClass="news">
-		select * from user where newsid = #newsid#
+		select * from news where newsid = #newsid# 
 	</select>
 
 	<!-- 根据newstype获得新闻列表 -->
 	<select id="getNewsListByNewsType" parameterClass="int"
 		resultClass="news">
-		select * from news where newstype = #newstype#
+		select * from news where newstype = #newstype# order by crtime desc
 	</select>
 	
 	<!-- 根据newstype和subtype获得新闻列表 -->
 	<select id="getNewsListByNewsTypeAndSubType" parameterClass="newsQuery"
 		resultClass="news">
-		select * from news where newstype = #newstype# and subtype = #subtype#
+		select * from news where newstype = #newstype# and subtype = #subtype# order by crtime desc
 	</select>
 
 	<insert id="addNews" parameterClass="news">

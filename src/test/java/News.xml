@@ -7,7 +7,7 @@
 	<!-- 根据newsid获得新闻 -->
 	<select id="getByNewsId" parameterClass="String"
 		resultClass="news">
-		select * from user where newsid = #newsid#
+		select * from news where newsid = #newsid#
 	</select>
 
 	<!-- 根据newstype获得新闻列表 -->
