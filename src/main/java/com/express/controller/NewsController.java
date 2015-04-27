@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,8 @@ public class NewsController extends BaseController{
 
 	@Autowired
 	private NewsService newsService;
+	
+	private static final Logger logger = Logger.getLogger(NewsController.class);  
 	
 	private String[] NewsType = {"","关于协会","政策法规","行业公告","会员风采"};
 	private String[][] SubType = {{},{"","协会简介","协会章程","协会制度","协会成员"},{"","行业法律规范","部门规章","规范性文件","地方性法规","行业其它要求"}
@@ -119,6 +122,7 @@ public class NewsController extends BaseController{
 		}catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 			outputJsonResponse(response, false, e.getMessage());
+			logger.error("根据新闻类型获取新闻信息出错！" +  ",errMsg=" + e.getMessage());
 			return null;
 		}
 	}
