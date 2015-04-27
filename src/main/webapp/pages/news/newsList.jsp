@@ -9,20 +9,20 @@
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->
-	<link href="/pet/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-	<link href="/pet/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-	<link href="/pet/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-	<link href="/pet/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
-	<link href="/pet/media/css/style.css" rel="stylesheet" type="text/css"/>
-	<link href="/pet/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-	<link href="/pet/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-	<link href="/pet/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+	<link href="/Express/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/Express/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/Express/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/Express/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+	<link href="/Express/media/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="/Express/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="/Express/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+	<link href="/Express/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 	<!-- END GLOBAL MANDATORY STYLES -->
 	<!-- BEGIN PAGE LEVEL STYLES -->
-	<link rel="stylesheet" type="text/css" href="/pet/media/css/select2_metro.css" />
-	<link rel="stylesheet" href="/pet/media/css/DT_bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/Express/media/css/select2_metro.css" />
+	<link rel="stylesheet" href="/Express/media/css/DT_bootstrap.css" />
 	<!-- END PAGE LEVEL STYLES -->
-	<link rel="shortcut icon" href="/pet/media/image/favicon.ico" />	
+	<link rel="shortcut icon" href="/Express/media/image/favicon.ico" />	
 	
 </head>
 <body class="page-header-fixed">
@@ -59,7 +59,7 @@
 								<span class="icon-angle-right"></span>
 							</li>
 							<li>
-								<a href="/pet/reservation/rsList.do">${subtype}</a>
+								<a href="/Express/reservation/rsList.do">${subtype}</a>
 							</li>
 						</ul>
 					</div>
@@ -118,26 +118,26 @@
 	<!-- END FOOTER -->
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 	<!-- BEGIN CORE PLUGINS -->
-	<script src="/pet/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-	<script src="/pet/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-	<script src="/pet/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
-	<script src="/pet/media/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="/pet/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-	<script src="/pet/media/js/jquery.blockui.min.js" type="text/javascript"></script>  
-	<script src="/pet/media/js/jquery.cookie.min.js" type="text/javascript"></script>
-	<script src="/pet/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+	<script src="/Express/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	<script src="/Express/media/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="/Express/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script type="text/javascript" src="/pet/media/js/select2.min.js"></script>
-	<script type="text/javascript" src="/pet/media/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" src="/pet/media/js/DT_bootstrap.js"></script>
-	<script type="text/javascript" src="/pet/media/js/jsonRespUtils.js"></script>
-	<script type="text/javascript" src="/pet/media/js/validate.js"></script>
+	<script type="text/javascript" src="/Express/media/js/select2.min.js"></script>
+	<script type="text/javascript" src="/Express/media/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="/Express/media/js/DT_bootstrap.js"></script>
+	<script type="text/javascript" src="/Express/media/js/jsonRespUtils.js"></script>
+	<script type="text/javascript" src="/Express/media/js/validate.js"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script src="/pet/media/js/app.js"></script>
-	<script src="/pet/media/js/table-editable.js"></script>    
+	<script src="/Express/media/js/app.js"></script>
+	<script src="/Express/media/js/table-editable.js"></script>    
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>
 		jQuery(document).ready(function() {       
@@ -148,7 +148,7 @@
 		
 	  	function deleteRs(id){
             if (!confirm("确信要删除吗？")) return;
-            var url="/pet/reservation/delRs.do";
+            var url="/Express/reservation/delRs.do";
             $.post(url,{rsid:id},function(data){
             	postDelRs(data);
             });

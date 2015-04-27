@@ -31,20 +31,26 @@ public class NewsController extends BaseController{
 	private String[][] SubType = {{},{"","协会简介","协会章程","协会制度","协会成员"},{"","行业法律规范","部门规章","规范性文件","地方性法规","行业其它要求"}
 	,{"","统计报告","消费者申述通告","旺季消费"},{"","最新活动"}};
 	
+	/**
+	 * 保存文章
+	 * @param request
+	 * @param response
+	 * @throws Exception
+	 */
 	@RequestMapping("/save.do")
 	public void addNews(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try{
-			String title = new String(request.getParameter("title").getBytes("ISO-8859-1"),"UTF-8");
-			String content = new String(request.getParameter("content").getBytes("ISO-8859-1"),"UTF-8");
-			String type = request.getParameter("type");
+			String title = new String(request.getParameter("title").getBytes("ISO-8859-1"),"UTF-8");				//文章标题
+			String content = new String(request.getParameter("content").getBytes("ISO-8859-1"),"UTF-8");			//文章内容
+			String type = request.getParameter("type");																//文章类别，其包含了newstype和subtype，比如说部门规章，那么type=22
 			int newstype = type.charAt(0)-'0';
 			int subtype = type.charAt(1)-'0';
-			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());
+			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());									//文章创建时间
 			System.out.println("title:"+title);
 			System.out.println("content:"+content);
 			System.out.println("newstype:"+newstype);
 			News news = new News();
-			news.setNewsid(CodeGenerator.createUUID());				
+			news.setNewsid(CodeGenerator.createUUID());																//生成文章id
 			news.setTitle(title);				
 			news.setContent(content);
 			news.setNewstype(newstype);
@@ -59,10 +65,16 @@ public class NewsController extends BaseController{
 		}
 	}
 	
+	/**
+	 * 修改文章
+	 * @param request
+	 * @param response
+	 * @throws Exception
+	 */
 	@RequestMapping("/update.do")
 	public void uodateNews(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try{
-			String newsid = request.getParameter("newsid");
+			String newsid = request.getParameter("newsid");																//获取文章id
 			String title = new String(request.getParameter("title").getBytes("ISO-8859-1"),"UTF-8");
 			String content = new String(request.getParameter("content").getBytes("ISO-8859-1"),"UTF-8");
 			String type = request.getParameter("type");
@@ -85,14 +97,21 @@ public class NewsController extends BaseController{
 		}
 	}
 	
+	/**
+	 * 展示文章
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/view.do")
 	public ModelAndView newsView(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try{
-			String newsid = request.getParameter("newsid");
-			News news = newsService.getByNewsId(newsid);
+			String newsid = request.getParameter("newsid");													//获取文章id
+			News news = newsService.getByNewsId(newsid);													//根据文章id获取文章
 			int newstype = news.getNewstype();
 			int subtype = news.getSubtype();
-			String type = newstype+""+subtype;
+			String type = newstype+""+subtype;																//根据新闻类别和子类，组合成type
 			Map map = new HashMap();
 			map.put("type", type);
 			map.put("news", news);
@@ -104,18 +123,25 @@ public class NewsController extends BaseController{
 		}
 	}
 	
+	/**
+	 * 返回文章列表
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/list.do")
 	public ModelAndView newsList(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try{
 			int newstype = 0;
 			int subtype = 0;
-			String r_newstype = request.getParameter("newstype");					//新闻大类
-			String r_subtype = request.getParameter("subtype");						//新闻戏类
+			String r_newstype = request.getParameter("newstype");											//新闻大类
+			String r_subtype = request.getParameter("subtype");												//新闻戏类
 			List<News> newsList = new ArrayList<News>();
 			if(StringUtils.isNumber(r_newstype)&&StringUtils.isNumber(r_subtype)){
 				newstype = Integer.valueOf(r_newstype);
 				subtype = Integer.valueOf(r_subtype);
-				newsList = newsService.getNewsListByNewsTypeAndSubType(newstype,subtype); 
+				newsList = newsService.getNewsListByNewsTypeAndSubType(newstype,subtype); 					//获取文章列表
 			}
 			else if(StringUtils.isNumber(r_newstype)){
 				newstype = Integer.valueOf(r_newstype);
@@ -134,4 +160,5 @@ public class NewsController extends BaseController{
 			return null;
 		}
 	}
+
 }
