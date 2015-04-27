@@ -26,5 +26,9 @@
   		 	 SELECT @@IDENTITY as userid  
  		 </selectKey> 
 	</insert>
+	
+	<update id="updateUser" parameterClass="user">
+		update user set compid=#compid#,username=#username#,passwd=#passwd#, phone=#phone#, email=#email#,level=#level# where userid=#userid#
+	</update>
 
 </sqlMap>  

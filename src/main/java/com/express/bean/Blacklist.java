@@ -4,11 +4,11 @@ import java.sql.Timestamp;
 
 public class Blacklist {
 	
-	private String name; 			// 文件id
+	private String name; 			// 黑名单姓名
 
-	private String compname; 		// 文件名称
+	private String compname; 		// 黑名单人员所属公司
 
-	private Timestamp crtime; 		// 文件路径
+	private Timestamp crtime; 		// 最后修改时间
 
 	public String getName() {
 		return name;

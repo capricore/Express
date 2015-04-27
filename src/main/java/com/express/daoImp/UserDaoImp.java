@@ -58,6 +58,21 @@ public class UserDaoImp extends BaseDao implements UserDao{
 		}
 		return flag;
 	}
+
+	@Override
+	public boolean updateUser(User user) {
+		Object object = null;
+		boolean flag = false;
+		try {
+			object =(Integer) getSqlMapClientTemplate().update("updateUser", user);
+		} catch (Exception e) {
+			logger.error("更新用户信息出错！" +  ",errMsg=" + e.getMessage());
+		}
+		if (object != null) {
+			flag = true;
+		}
+		return flag;
+	}
 	
 	
 }

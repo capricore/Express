@@ -17,4 +17,7 @@ public interface UserDao {
     
     /* 添加新用户 */
     public boolean addUser(User user);
+    
+    /* 更新用户*/
+    public boolean updateUser(User user);
 }
