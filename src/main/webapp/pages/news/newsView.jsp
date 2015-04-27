@@ -74,44 +74,56 @@
 							</div>
 						<div class="portlet-body form">
 							<!-- BEGIN FORM-->
-							<form id="newsForm" action="/Express/news/save.do" class="form-horizontal" method="post" enctype="multipart/form-data" target="hidden_frame">
-								<div class="alert alert-error hide">
-									<button class="close" data-dismiss="alert"></button>
-									表单有错误，请检查！
-								</div>
-								<div class="alert alert-success hide">
-									<button class="close" data-dismiss="alert"></button>
-									表单验证成功！
-								</div>
+							<form id="newsForm" action="/Express/news/update.do" class="form-horizontal" method="post" enctype="multipart/form-data" target="hidden_frame">
+								<input name="content" type="hidden"  id="content">
+								<input name="newsid" type="hidden"  value="${news.newsid}">
 								<div class="control-group">
 									<label class="control-label">标题</label>
 									<div class="controls">
-										<input type="text" class="span6 m-wrap" name="adname" />
+										<input type="text" class="span6 m-wrap" name="title" value="${news.title}" />
 										<span class="help-inline">必填</span>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">内容</label>
 									<div class="controls">
-										<script id="editor" type="text/plain" style="width:800px;height:500px;"></script>
+										<script id="editor" type="text/plain" style="width:710px;height:300px;"></script>
 									</div>
 								</div>								
 								<div class="control-group">
 									<label class="control-label">文章类别</label>
-									<div class="controls">
-										<select class="span6 chosen" data-placeholder="选择类别" tabindex="1" name="position">
-											<option value="1">关于协会</option>
-											<option value="2">政策法规</option>
-											<option value="3">行业公告</option>
-											<option value="4">会员风采</option>
+										<div class="controls">
+											<select id="type" data-placeholder="请选择文章类别" class="chosen span6" tabindex="-1" id="selS0V" name="type">
+											<option value=""></option>
+											<optgroup label="关于协会">
+												<option value="11">协会简介</option>
+												<option value="12">协会章程</option>
+												<option value="13">协会制度</option>
+												<option value="14">协会成员</option>
+											</optgroup>
+											<optgroup label="政策法规">
+												<option value="21">行业法律法规</option>
+												<option value="22">部门规章</option>
+												<option value="23">规范性文件</option>
+												<option value="24">地方性法规</option>
+												<option value="25">行业其它要求</option>
+											</optgroup>
+											<optgroup label="行业公告">
+												<option value="31">邮政统计报告</option>
+												<option value="32">消费者申述通告</option>
+												<option value="33">旺季消费提示</option>
+											</optgroup>
+											<optgroup label="会员风采">
+												<option value="41">最新活动</option>
+											</optgroup>
 										</select>
 									</div>
 								</div>
-								<div class="form-actions">
-									<button type="submit" class="btn blue">提交</button>
-									<button type="reset" class="btn">取消</button>                            
-								</div>
 							</form>
+							<div class="form-actions">
+								<button type="submit" class="btn blue" onclick="save()">提交</button>
+								<button type="reset" class="btn">取消</button>                            
+							</div>
 						</div>
 						</div>
 						<!-- END EXTRAS PORTLET-->
@@ -154,49 +166,60 @@
     <script type="text/javascript" charset="utf-8" src="/Express/ueditor/ueditor.all.min.js"> </script>
     <script type="text/javascript" charset="utf-8" src="/Express/ueditor/lang/zh-cn/zh-cn.js"></script>
 	
+	<script type="text/javascript">
+	      var ue = UE.getEditor('editor');
+	</script>
+	
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>
 		jQuery(document).ready(function() {       
 		   // initiate layout and plugins
 		   App.init();
-		   var rule={adname:{required:true},position:{required:true}};
-		   FormValidation.init($('#newsForm'),rule,creatSubmitForm('newsForm'),failedForm);
-		   var ue = UE.getEditor('editor');
+		   ue.addListener("ready", function () {
+		          // editor准备好之后才可以使用
+		          ue.setContent('${news.content}');
+		  	});
+		   $("#type option[value='${type}']").attr("selected",true);
 		});
 		
-		function failedForm(){
-			console.log("failedForm");
-		}
-		
-		function creatSubmitForm(formId){
-			return function submitForm(){
-				var formObj = $("#"+formId);
-			    var formURL = formObj.attr("action");
-			    var formData = new FormData(formObj[0]);
-			    $.ajax({
-			        url: formURL,
-			    type: 'POST',
-			        data:  formData,
-			    mimeType:"multipart/form-data",
-			    contentType: false,
-			    cache: false,
-			    processData:false,
-			    success: function(transport)
-			    {
-			    	 var jresp = new JsonRespUtils(transport);
-			    	 if (jresp.isSuccessfully()){
-			    		 var res = jresp.getMessage();
-			    		 alert("保存成功！");
-			    	 }
-			    	 location.reload();
-			    },
-			     error: function(transport) 
-			     {
-			    	alert("保存失败！");
-			     }          
-			    });
+		function submitById(id){			
+			//Callback handler for form submit event
+			$("#"+id).submit(function(e)
+			{
+					e.preventDefault();
+				  	var formObj = $(this);
+				    var formURL = formObj.attr("action");
+				    var formData = new FormData(this);
+				    $.ajax({
+				        url: formURL,
+				    type: 'POST',
+				        data:  formData,
+				    mimeType:"multipart/form-data",
+				    contentType: false,
+				    cache: false,
+				    processData:false,
+				    success: function(transport)
+				    {
+				    	 var jresp = new JsonRespUtils(transport);
+				    	 if (jresp.isSuccessfully()){
+				    		 var res = jresp.getMessage();
+				    		alert("保存成功！");
+				    		location.reload();
+				    	 }
+				    },
+				     error: function(transport) 
+				     {
+				    	alert("保存失败！");
+				     }          
+				    });
+				}); 
+				$("#"+id).submit();
 			}
-		}
+		 
+		 function save(){
+			 $("#content").val(ue.getContent());
+			 submitById('newsForm');
+		 }
 
 	</script>
 	<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>

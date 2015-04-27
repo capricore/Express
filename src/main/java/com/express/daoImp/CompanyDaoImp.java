@@ -13,7 +13,6 @@ public class CompanyDaoImp extends BaseDao implements CompanyDao{
 	private static final Logger logger = Logger.getLogger(CompanyDaoImp.class);  
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<Company> getCompanyList() {
 		List<Company> Company = null;
 		try {
@@ -24,7 +23,6 @@ public class CompanyDaoImp extends BaseDao implements CompanyDao{
 		return Company; 
 	}
 
-	@Override
 	public Company getByCompanyName(String compname) {
 		Company company = null;
 		try {
@@ -35,7 +33,6 @@ public class CompanyDaoImp extends BaseDao implements CompanyDao{
 		return company;
 	}
 
-	@Override
 	public Company getByCompanyId(String compid) {
 		Company company = null;
 		try {
@@ -46,7 +43,6 @@ public class CompanyDaoImp extends BaseDao implements CompanyDao{
 		return company;  
 	}
 
-	@Override
 	public boolean addCompany(Company company) {
 		String object = null;
 		boolean flag = false;
@@ -61,7 +57,6 @@ public class CompanyDaoImp extends BaseDao implements CompanyDao{
 		return flag;
 	}
 
-	@Override
 	public boolean updateCompany(Company company) {
 		Object object = null;
 		boolean flag = false;

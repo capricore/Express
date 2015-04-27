@@ -78,14 +78,6 @@
 							<!-- BEGIN FORM-->
 							<form id="newsForm" action="/Express/news/save.do" class="form-horizontal" method="post" enctype="multipart/form-data" target="hidden_frame">
 								<input name="content" type="hidden"  id="content">
-								<div class="alert alert-error hide">
-									<button class="close" data-dismiss="alert"></button>
-									表单有错误，请检查！
-								</div>
-								<div class="alert alert-success hide">
-									<button class="close" data-dismiss="alert"></button>
-									表单验证成功！
-								</div>
 								<div class="control-group">
 									<label class="control-label">标题</label>
 									<div class="controls">

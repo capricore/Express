@@ -22,16 +22,16 @@
 					</a>
 					<ul class="sub-menu">
 						<li >
-							<a href="/pet/hospital/hplist.do">协会简介</a>
+							<a href="/Express/news/list.do?newstype=1&subtype=1">协会简介</a>
 						</li>
 						<li >
-							<a href="/pet/hospital/hpAdd.do">协会章程</a>
+							<a href="/Express/news/list.do?newstype=1&subtype=2">协会章程</a>
 						</li>
 						<li >
-							<a href="/pet/doctor/dtAdd.do">协会制度</a>
+							<a href="/Express/news/list.do?newstype=1&subtype=3">协会制度</a>
 						</li>
 						<li >
-							<a href="/pet/item/itAdd.do">协会成员</a>
+							<a href="/Express/news/list.do?newstype=1&subtype=4">协会成员</a>
 						</li>
 					</ul>
 				</li>
@@ -43,19 +43,19 @@
 					</a>
 					<ul class="sub-menu">
 						<li >
-							<a href="/pet/advertisement/adAdd.do">行业法律法规</a>
+							<a href="/Express/news/list.do?newstype=2&subtype=1">行业法律法规</a>
 						</li>
 						<li >
-							<a href="/pet/advertisement/adList.do">部门规章</a>
+							<a href="/Express/news/list.do?newstype=2&subtype=2">部门规章</a>
 						</li>
 						<li >
-							<a href="/pet/advertisement/adList.do">规范性文件</a>
+							<a href="/Express/news/list.do?newstype=2&subtype=3">规范性文件</a>
 						</li>
 						<li >
-							<a href="/pet/advertisement/adList.do">地方性法规</a>
+							<a href="/Express/news/list.do?newstype=2&subtype=4">地方性法规</a>
 						</li>
 						<li >
-							<a href="/pet/advertisement/adList.do">行业其它要求</a>
+							<a href="/Express/news/list.do?newstype=2&subtype=5">行业其它要求</a>
 						</li>
 					</ul>
 				</li>
@@ -67,17 +67,17 @@
 					</a>
 					<ul class="sub-menu">
 						<li >
-							<a href="/pet/animal/amAdd.do">统计报告</a>
+							<a href="/Express/news/list.do?newstype=3&subtype=1">统计报告</a>
 						</li>
 						<li >
-							<a href="/pet/animal/amlist.do?species=1">消费者申诉通告</a>
+							<a href="/Express/news/list.do?newstype=3&subtype=2">消费者申诉通告</a>
 						</li>
 						<li >
-							<a href="/pet/animal/amlist.do?species=2">旺季消费</a>
+							<a href="/Express/news/list.do?newstype=3&subtype=3">旺季消费</a>
 						</li>
 					</ul>
 				</li>
-				<li class="">
+				<li class="/Express/news/list.do?newstype=4&subtype=1">
 					<a href="javascript:;">
 					<i class="icon-sitemap"></i> 
 						<span class="title">会员风采</span>
