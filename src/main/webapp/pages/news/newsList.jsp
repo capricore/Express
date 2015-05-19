@@ -34,17 +34,6 @@
 	<%@ include file="/pages/includes/left_navigation.jsp"%>
 		<!-- BEGIN PAGE -->  
 		<div class="page-content">
-			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-			<div id="portlet-config" class="modal hide">
-				<div class="modal-header">
-					<button data-dismiss="modal" class="close" type="button"></button>
-					<h3>portlet Settings</h3>
-				</div>
-				<div class="modal-body">
-					<p>Here will be a configuration form</p>
-				</div>
-			</div>
-			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 			<!-- BEGIN PAGE CONTAINER-->
 			<div class="container-fluid">
 				<div class="row-fluid">
@@ -55,11 +44,15 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="#">${newstype}</a> 
+								<a href="/Express">主页</a> 
 								<span class="icon-angle-right"></span>
 							</li>
 							<li>
-								<a href="/Express/reservation/rsList.do">${subtype}</a>
+								<a >${newstype}</a> 
+								<span class="icon-angle-right"></span>
+							</li>
+							<li>
+								<a >${subtype}</a>
 							</li>
 						</ul>
 					</div>

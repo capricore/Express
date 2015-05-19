@@ -31,5 +31,29 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 		</property>
 	</bean>
 	
+	<bean id="companyDao" class="com.express.daoImp.CompanyDaoImp">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	
+	<bean id="userBlacklistDao" class="com.express.daoImp.UserBlacklistDaoImp">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	
+	<bean id="mercBlacklistDao" class="com.express.daoImp.MercBlacklistDaoImp">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	
+	<bean id="organizationBlacklistDao" class="com.express.daoImp.OrganizationBlacklistDaoImp">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	
 	
 </beans>

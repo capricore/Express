@@ -21,14 +21,29 @@
 	</select>
 
 	<insert id="addCompany" parameterClass="company">
-		insert into company values(#compid#,#compname#,#address#,#tel#,#email#,#crtime#)
+		insert into company values(#compid#,#compname#,#address#,#tel#,#email#,#crtime#,#pcompid#)
 		<selectKey resultClass="String" keyProperty="compid">  
   		 	 SELECT @@IDENTITY as compid  
  		 </selectKey> 
 	</insert>
 	
 	<update id="updateCompany" parameterClass="company">
-		update company set compname=#compname#,address=#address#,tel=#tel#,email=#email#,crtime=#crtime# where compid=#compid#
+		update company set compname=#compname#,address=#address#,tel=#tel#,email=#email#,crtime=#crtime#,pcompid=#pcompid# where compid=#compid#
 	</update>
+	
+	
+	<!-- 根据主公司id获取子公司信息列表 -->
+	<select id="getSubcompanyListByCompId" parameterClass="String" resultClass="company">
+		select * from company where pcompid = #compid#
+	</select>
+	
+	<!-- 根据主公司id获取子公司信息列表 -->
+	<select id="getMainCompanyList" resultClass="company">
+		select * from company where isnull(pcompid)
+	</select>
+	
+	<delete id="deleteComp" parameterClass="String">
+		delete from company where compid = #compid#
+	</delete>
 
 </sqlMap> 

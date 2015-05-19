@@ -8,6 +8,9 @@ public interface CompanyDao {
 	/* 查询公司列表 */
     public List<Company> getCompanyList();
     
+    /* 根据主公司id查询对应子公司列表 */
+    public List<Company> getSubcompanyListByCompId(String compid);
+    
     /* 根据compname查询指定用户 */
     public Company getByCompanyName(String compname);  
     
@@ -19,5 +22,11 @@ public interface CompanyDao {
     
     /* 更新公司信息*/
     public boolean updateCompany(Company company);
+    
+    /* 更新公司信息*/
+    public List<Company> getMainCompanyList();
+    
+    /* 删除公司信息*/
+    public boolean deleteComp(String compid);
 
 }

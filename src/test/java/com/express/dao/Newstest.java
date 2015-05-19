@@ -1,6 +1,5 @@
 package com.express.dao;
 
-import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,20 +17,20 @@ public class Newstest {
 				"classpath:/applicationContext.xml");
 
 		NewsDao newsDao = (NewsDao) context.getBean("newsDao");
-		News news2 = new News();
-		news2.setNewsid("2");
-		news2.setTitle("second news");
-		news2.setContent("this is second piece of news");
-		news2.setNewstype(1);
-		news2.setSubtype(1);
-		news2.setDel(0);
-		news2.setCrtime(new Timestamp(System.currentTimeMillis()));
-		
-		if (newsDao.updateNews(news2)) {
-			System.out.println("添加成功");
-		}else {
-			System.out.println("添加失败");
-		}
+//		News news2 = new News();
+//		news2.setNewsid("2");
+//		news2.setTitle("second news");
+//		news2.setContent("this is second piece of news");
+//		news2.setNewstype(1);
+//		news2.setSubtype(1);
+//		news2.setDel(0);
+//		news2.setCrtime(new Timestamp(System.currentTimeMillis()));
+//		
+//		if (newsDao.updateNews(news2)) {
+//			System.out.println("添加成功");
+//		}else {
+//			System.out.println("添加失败");
+//		}
 		
 		List<News> news = newsDao.getNewsListByNewsType(1);
 		System.out.println("获得全查询列表");
@@ -42,6 +41,7 @@ public class Newstest {
 
 			System.out.println(element.getTitle());
 			System.out.println(element.getContent());
+			System.out.println(element.getCrtime());
 		
 		}
 	}

@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 public class Company {
 	
 	private String compid; 			// 公司id
+	
+	private String pcompid;			// 上一级公司id：若没有为null
 
 	private String compname; 		// 公司名称
 
@@ -14,6 +16,14 @@ public class Company {
 	
 	private String email;			// 公司邮箱
 	
+	public String getPcompid() {
+		return pcompid;
+	}
+
+	public void setPcompid(String pcompid) {
+		this.pcompid = pcompid;
+	}
+
 	private Timestamp  crtime;			// 公司添加时间
 
 	public String getCompid() {

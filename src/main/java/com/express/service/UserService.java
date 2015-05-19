@@ -5,6 +5,7 @@ import java.util.List;
 import com.express.bean.User;
 
 public interface UserService {
+	
 	/* 查询表中所有用户 */
     public List<User> getUserList();  
     
@@ -16,5 +17,14 @@ public interface UserService {
     
     /* 添加新用户 */
     public boolean addUser(User user);
+    
+    /* 更新用户*/
+    public boolean updateUser(User user);  
+    
+    /* 删除用户*/
+    public boolean deleteUser(String userid);
+    
+    /* 根据userid获取当前用户群发短信用户列表*/
+    public List<User> getMessageListbyUserId(String userid);
 
 }

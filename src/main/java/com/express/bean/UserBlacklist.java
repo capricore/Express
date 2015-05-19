@@ -2,13 +2,23 @@ package com.express.bean;
 
 import java.sql.Timestamp;
 
-public class Blacklist {
+public class UserBlacklist {
 	
+	private String userid;
+
 	private String name; 			// 黑名单姓名
 
 	private String compname; 		// 黑名单人员所属公司
 
 	private Timestamp crtime; 		// 最后修改时间
+	
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 
 	public String getName() {
 		return name;

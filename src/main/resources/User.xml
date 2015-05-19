@@ -30,5 +30,15 @@
 	<update id="updateUser" parameterClass="user">
 		update user set compid=#compid#,username=#username#,passwd=#passwd#, phone=#phone#, email=#email#,level=#level# where userid=#userid#
 	</update>
+	
+	<!-- 根据用户权限获得群发短信列表 -->
+	<select id="getMessageListbyCompId"  parameterClass="String" resultClass="user">
+		select * from user where compid = #compid#
+	</select>
+	
+	<delete id="deleteUser" parameterClass="String">
+		delete from user where userid = #userid#
+	</delete>
+	
 
 </sqlMap>  

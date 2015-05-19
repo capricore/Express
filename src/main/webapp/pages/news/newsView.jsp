@@ -34,17 +34,6 @@
 	<%@ include file="/pages/includes/left_navigation.jsp"%>
 		<!-- BEGIN PAGE -->  
 		<div class="page-content">
-			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-			<div id="portlet-config" class="modal hide">
-				<div class="modal-header">
-					<button data-dismiss="modal" class="close" type="button"></button>
-					<h3>portlet Settings</h3>
-				</div>
-				<div class="modal-body">
-					<p>Here will be a configuration form</p>
-				</div>
-			</div>
-			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 			<!-- BEGIN PAGE CONTAINER-->
 			<div class="container-fluid">
 				<div class="row-fluid">
@@ -55,12 +44,15 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="index.html">主页</a> 
+								<a href="/Express">主页</a> 
 								<span class="icon-angle-right"></span>
 							</li>
 							<li>
-								<a href="#">文章详情</a>
+								<a >文章详情</a>
 								<span class="icon-angle-right"></span>
+							</li>
+							<li>
+								<a >${news.title}</a>
 							</li>
 						</ul>
 					</div>
@@ -70,7 +62,7 @@
 						<!-- BEGIN SAMPLE FORM PORTLET-->   
 						<div class="portlet box blue">
 							<div class="portlet-title">
-								<div class="caption"><i class="icon-reorder"></i>Sample Form</div>
+								<div class="caption"><i class="icon-reorder"></i>文章详情</div>
 							</div>
 						<div class="portlet-body form">
 							<!-- BEGIN FORM-->

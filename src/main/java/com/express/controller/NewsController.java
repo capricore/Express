@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.express.bean.Company;
 import com.express.bean.News;
 import com.express.service.NewsService;
 import com.express.util.CodeGenerator;
@@ -75,7 +76,7 @@ public class NewsController extends BaseController{
 	 * @throws Exception
 	 */
 	@RequestMapping("/update.do")
-	public void uodateNews(HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public void updateNews(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try{
 			String newsid = request.getParameter("newsid");																//获取文章id
 			String title = new String(request.getParameter("title").getBytes("ISO-8859-1"),"UTF-8");
@@ -128,6 +129,25 @@ public class NewsController extends BaseController{
 	}
 	
 	/**
+	 * 添加新闻
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/newsAdd.do")
+	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		try{
+			ModelAndView view = new ModelAndView("news/newsAdd");
+			return view;
+		}catch (RuntimeException e) {
+			logger.error("获取添加新闻信息列表出错！" +  ",errMsg=" + e.getMessage());
+			outputJsonResponse(response, false, e.getMessage());
+			return null;
+		}
+	}
+	
+	/**
 	 * 返回文章列表
 	 * @param request
 	 * @param response
@@ -165,4 +185,5 @@ public class NewsController extends BaseController{
 		}
 	}
 
+	
 }

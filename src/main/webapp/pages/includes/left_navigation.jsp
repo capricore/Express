@@ -10,7 +10,7 @@
 					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 				</li>
 				<li class="start">
-					<a href="javascript:;"><i class="icon-home"></i> 
+					<a href="/Express/news/newsAdd.do"><i class="icon-home"></i> 
 						<span class="title">添加文章</span>
 					</a>
 				</li>
@@ -77,11 +77,54 @@
 						</li>
 					</ul>
 				</li>
-				<li class="/Express/news/list.do?newstype=4&subtype=1">
+				<li class="">
 					<a href="javascript:;">
 					<i class="icon-sitemap"></i> 
-						<span class="title">会员风采</span>
+					<span class="title">会员管理</span>
+					<span class="arrow "></span>
 					</a>
+					<ul class="sub-menu">
+						<li >
+							<a href="/Express/user/userAdd.do">添加会员</a>
+						</li>
+						<li >
+							<a href="/Express/user/list.do">会员列表</a>
+						</li>
+						<li >
+							<a href="/Express/company/companyAdd.do">添加公司</a>
+						</li>
+						<li >
+							<a href="/Express/company/list.do">公司列表</a>
+						</li>
+						
+					</ul>
+				</li>
+				<li class="">
+					<a href="javascript:;">
+					<i class="icon-wrench"></i> 
+					<span class="title">黑名单管理</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li >
+							<a href="/Express/userblacklist/userAdd.do">添加员工黑名单</a>
+						</li>
+						<li >
+							<a href="/Express/userblacklist/list.do">员工黑名单列表</a>
+						</li>
+						<li >
+							<a href="/Express/mercblacklist/mercAdd.do">添加电商黑名单</a>
+						</li>
+						<li >
+							<a href="/Express/mercblacklist/list.do">电商黑名单列表</a>
+						</li>
+						<li >
+							<a href="/Express/organizationblacklist/organizationAdd.do">添加快递公司黑名单</a>
+						</li>
+						<li >
+							<a href="/Express/organizationblacklist/list.do">快递公司黑名单列表</a>
+						</li>
+					</ul>
 				</li>
 			</ul>
 		<!-- END SIDEBAR MENU -->
