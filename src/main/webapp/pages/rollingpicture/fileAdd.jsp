@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>添加用户</title>
+	<title>添加滚动新闻</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -21,11 +19,10 @@
 	<link href="/Express/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 	<!-- END GLOBAL MANDATORY STYLES -->
 	<!-- BEGIN PAGE LEVEL STYLES -->
-	<link href="/Express/media/css/bootstrap-fileupload.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/Express/media/css/bootstrap-fileupload.css" />
 	<link href="/Express/media/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
-	<link href="/Express/media/css/chosen.css" rel="stylesheet" type="text/css"  />
 	<!-- END PAGE LEVEL STYLES -->
-	<link href="/Express/media/image/favicon.ico" rel="shortcut icon" />	
+	<link rel="shortcut icon" href="/Express/media/image/favicon.ico" />	
 	
 </head>
 <body class="page-header-fixed">
@@ -42,7 +39,7 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<h3 class="page-title">
-							添加用户
+							添加滚动新闻
 						</h3>
 						<ul class="breadcrumb">
 							<li>
@@ -51,10 +48,10 @@
 								<span class="icon-angle-right"></span>
 							</li>
 							<li>
-								<a >黑名单管理</a>
+								<a >滚动新闻管理</a>
 								<span class="icon-angle-right"></span>
 							</li>
-							<li><a >添加公司</a></li>
+							<li><a >添加滚动新闻</a></li>
 						</ul>
 					</div>
 				</div>
@@ -63,23 +60,67 @@
 						<!-- BEGIN SAMPLE FORM PORTLET-->   
 						<div class="portlet box blue">
 							<div class="portlet-title">
-								<div class="caption"><i class="icon-reorder"></i>添加公司</div>
+								<div class="caption"><i class="icon-reorder"></i>添加滚动新闻</div>
 							</div>
 						<div class="portlet-body form">
 							<!-- BEGIN FORM-->
-							<form id="companyForm" action="/Express/organizationblacklist/save.do" class="form-horizontal" method="post" enctype="multipart/form-data" target="hidden_frame">
+							<form id="adForm" action="/Express/rollingpicture/save.do" class="form-horizontal" method="post" enctype="multipart/form-data" target="hidden_frame">
+								<div class="alert alert-error hide">
+									<button class="close" data-dismiss="alert"></button>
+									表单有错误，请检查！
+								</div>
+								<div class="alert alert-success hide">
+									<button class="close" data-dismiss="alert"></button>
+									表单验证成功！
+								</div>
 								<div class="control-group">
-									<label class="control-label">快递公司名称</label>
+									<label class="control-label">标题</label>
 									<div class="controls">
-										<input id="organizationname" type="text" class="span6 m-wrap" name="organizationname"/>
+										<input type="text" class="span6 m-wrap" name="title" />
 										<span class="help-inline">必填</span>
 									</div>
 								</div>
+								<div class="control-group">
+									<label class="control-label">新闻URL</label>
+									<div class="controls">
+										<input type="text" class="span6 m-wrap" name="link" />
+										<span class="help-inline">必填</span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">滚动图片</label>
+									<div class="controls">
+										<div class="fileupload fileupload-new" data-provides="fileupload">
+											<div class="input-append">
+												<div class="uneditable-input">
+													<i class="icon-file fileupload-exists"></i> 
+													<span class="fileupload-preview"></span>
+												</div>
+												<span class="btn btn-file">
+												<span class="fileupload-new">选择图片</span>
+												<span class="fileupload-exists">更换</span>
+												<input id="mainpicId" name="mainpicfile" type="file" class="default" />
+												</span>
+												<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">滚动顺序</label>
+									<div class="controls">
+										<select class="span6 chosen" data-placeholder="选择滚动顺序" tabindex="1" name="sequence">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-actions">
+									<button type="submit" class="btn blue">提交</button>
+									<button type="reset" class="btn">取消</button>                            
+								</div>
 							</form>
-							<div class="form-actions">
-								<button type="submit" class="btn blue" onclick="save();">提交</button>
-								<button type="button" class="btn">取消</button>                            
-							</div>
 						</div>
 						</div>
 						<!-- END EXTRAS PORTLET-->
@@ -109,61 +150,59 @@
 	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 	<script src="/Express/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
 	<script src="/Express/media/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jsonRespUtils.js" type="text/javascript" ></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 	<script type="text/javascript" src="/Express/media/js/bootstrap-fileupload.js"></script>
 	<script type="text/javascript" src="/Express/media/js/jsonRespUtils.js"></script>
-	<script type="text/javascript" src="/Express/media/js/validate.js"></script>
-	<script type="text/javascript" src="/Express/media/js/chosen.jquery.min.js"></script>
+	<script type="text/javascript" src="/Express/media/js/jquery.validate.min.js"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
 	<script src="/Express/media/js/app.js"></script>
+	<script src="/Express/media/js/form-validation.js"></script> 
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>
 		jQuery(document).ready(function() {       
 		   // initiate layout and plugins
 		   App.init();
+		   var rule={adname:{required:true},position:{required:true}};
+		   FormValidation.init($('#adForm'),rule,creatSubmitForm('adForm'),failedForm);
 		});
 		
-		function submitById(id){			
-			//Callback handler for form submit event
-			$("#"+id).submit(function(e)
-			{
-				  	e.preventDefault();
-				  	var formObj = $(this);
-				    var formURL = formObj.attr("action");
-				    var formData = new FormData(this);
-				    $.ajax({
-				        url: formURL,
-				    type: 'POST',
-				        data:  formData,
-				    mimeType:"multipart/form-data",
-				    contentType: false,
-				    cache: false,
-				    processData:false,
-				    success: function(transport)
-				    {
-				    	 var jresp = new JsonRespUtils(transport);
-				    	 if (jresp.isSuccessfully()){
-				    		 var res = jresp.getMessage();
-				    		alert("保存成功！");
-				    	 }
-				    	 location.reload();
-				    },
-				     error: function(transport) 
-				     {
-				    	alert("保存失败！");
-				     }          
-				    });
-				}); 
-				$("#"+id).submit();
-			}
-
-		function save(){
-			submitById('companyForm');
-			return false;
+		function failedForm(){
+			console.log("failedForm");
 		}
 		
+		function creatSubmitForm(formId){
+			return function submitForm(){
+				var formObj = $("#"+formId);
+			    var formURL = formObj.attr("action");
+			    var formData = new FormData(formObj[0]);
+			    $.ajax({
+			        url: formURL,
+			    type: 'POST',
+			        data:  formData,
+			    mimeType:"multipart/form-data",
+			    contentType: false,
+			    cache: false,
+			    processData:false,
+			    success: function(transport)
+			    {
+			    	 var jresp = new JsonRespUtils(transport);
+			    	 if (jresp.isSuccessfully()){
+			    		 var res = jresp.getMessage();
+			    		 alert("保存成功！");
+			    	 }
+			    	 location.reload();
+			    },
+			     error: function(transport) 
+			     {
+			    	alert("保存失败！");
+			     }          
+			    });
+			}
+		}
+
 	</script>
 	<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
 	<!-- END BODY -->

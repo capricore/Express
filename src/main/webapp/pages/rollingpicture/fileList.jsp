@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>添加用户</title>
+	<title>滚动新闻列表</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -21,11 +19,10 @@
 	<link href="/Express/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 	<!-- END GLOBAL MANDATORY STYLES -->
 	<!-- BEGIN PAGE LEVEL STYLES -->
-	<link href="/Express/media/css/bootstrap-fileupload.css" rel="stylesheet" type="text/css" />
-	<link href="/Express/media/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
-	<link href="/Express/media/css/chosen.css" rel="stylesheet" type="text/css"  />
+	<link rel="stylesheet" type="text/css" href="/Express/media/css/select2_metro.css" />
+	<link rel="stylesheet" href="/Express/media/css/DT_bootstrap.css" />
 	<!-- END PAGE LEVEL STYLES -->
-	<link href="/Express/media/image/favicon.ico" rel="shortcut icon" />	
+	<link rel="shortcut icon" href="/Express/media/image/favicon.ico" />	
 	
 </head>
 <body class="page-header-fixed">
@@ -42,7 +39,7 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<h3 class="page-title">
-							添加用户
+							滚动新闻列表
 						</h3>
 						<ul class="breadcrumb">
 							<li>
@@ -51,10 +48,10 @@
 								<span class="icon-angle-right"></span>
 							</li>
 							<li>
-								<a >黑名单管理</a>
+								<a >滚动新闻管理</a>
 								<span class="icon-angle-right"></span>
 							</li>
-							<li><a >添加公司</a></li>
+							<li><a >滚动新闻列表</a></li>
 						</ul>
 					</div>
 				</div>
@@ -63,23 +60,37 @@
 						<!-- BEGIN SAMPLE FORM PORTLET-->   
 						<div class="portlet box blue">
 							<div class="portlet-title">
-								<div class="caption"><i class="icon-reorder"></i>添加公司</div>
+								<div class="caption"><i class="icon-reorder"></i>滚动新闻列表</div>
 							</div>
-						<div class="portlet-body form">
-							<!-- BEGIN FORM-->
-							<form id="companyForm" action="/Express/organizationblacklist/save.do" class="form-horizontal" method="post" enctype="multipart/form-data" target="hidden_frame">
-								<div class="control-group">
-									<label class="control-label">快递公司名称</label>
-									<div class="controls">
-										<input id="organizationname" type="text" class="span6 m-wrap" name="organizationname"/>
-										<span class="help-inline">必填</span>
-									</div>
-								</div>
-							</form>
-							<div class="form-actions">
-								<button type="submit" class="btn blue" onclick="save();">提交</button>
-								<button type="button" class="btn">取消</button>                            
-							</div>
+						<div class="portlet-body">
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+								<thead>
+									<tr>
+										<th>编号</th>
+										<th>滚动图</th>
+										<th>新闻标题</th>
+										<th>滚动顺序</th>
+										<th>编辑</th>
+										<th>删除</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach  items="${fileList}"  var="item"  varStatus="status">
+										<tr class="">
+											<td>${status.index+1}</td>
+											<td>
+												<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+													<img src="/upload${item.filesrc}" alt="" style="width: 200px; height: 150px;" />
+												</div>
+											</td>
+											<td>${item.title}</td>
+											<td>${item.sequence}</td>
+											<td><a  href="/Express/rollingpicture/edit.do?id=${item.id}">Edit</a></td>
+											<td><a  href="javascript:deleteAd('${item.id}')">Delete</a></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
 						</div>
 						<!-- END EXTRAS PORTLET-->
@@ -109,61 +120,45 @@
 	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 	<script src="/Express/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
 	<script src="/Express/media/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="/Express/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="/Express/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script type="text/javascript" src="/Express/media/js/bootstrap-fileupload.js"></script>
+	<script type="text/javascript" src="/Express/media/js/select2.min.js"></script>
+	<script type="text/javascript" src="/Express/media/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="/Express/media/js/DT_bootstrap.js"></script>
 	<script type="text/javascript" src="/Express/media/js/jsonRespUtils.js"></script>
 	<script type="text/javascript" src="/Express/media/js/validate.js"></script>
-	<script type="text/javascript" src="/Express/media/js/chosen.jquery.min.js"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
 	<script src="/Express/media/js/app.js"></script>
+	<script src="/Express/media/js/table-editable.js"></script>    
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<script>
 		jQuery(document).ready(function() {       
 		   // initiate layout and plugins
 		   App.init();
+		   TableEditable.init();
 		});
 		
-		function submitById(id){			
-			//Callback handler for form submit event
-			$("#"+id).submit(function(e)
-			{
-				  	e.preventDefault();
-				  	var formObj = $(this);
-				    var formURL = formObj.attr("action");
-				    var formData = new FormData(this);
-				    $.ajax({
-				        url: formURL,
-				    type: 'POST',
-				        data:  formData,
-				    mimeType:"multipart/form-data",
-				    contentType: false,
-				    cache: false,
-				    processData:false,
-				    success: function(transport)
-				    {
-				    	 var jresp = new JsonRespUtils(transport);
-				    	 if (jresp.isSuccessfully()){
-				    		 var res = jresp.getMessage();
-				    		alert("保存成功！");
-				    	 }
-				    	 location.reload();
-				    },
-				     error: function(transport) 
-				     {
-				    	alert("保存失败！");
-				     }          
-				    });
-				}); 
-				$("#"+id).submit();
-			}
+	  	function deleteAd(id){
+            if (!confirm("确信要删除吗？")) return;
+            var url="/Express/rollingpicture/delFile.do";
+            $.post(url,{id:id},function(data){
+            	postDelAd(data);
+            });
+        }
 
-		function save(){
-			submitById('companyForm');
-			return false;
-		}
-		
+        function postDelAd(transport){
+            var jresp = new JsonRespUtils(transport);
+            if (jresp.isSuccessfully()){
+         		location.reload();
+            }else{
+                alert(jresp.getMessage());
+            }
+        }
 	</script>
 	<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
 	<!-- END BODY -->

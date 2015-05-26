@@ -55,5 +55,16 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 		</property>
 	</bean>
 	
+	<bean id="rollingpictureDao" class="com.express.daoImp.RollingPictureDaoImp">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	
+	<bean id="staticpictureDao" class="com.express.daoImp.StaticPictureDaoImp">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
 	
 </beans>

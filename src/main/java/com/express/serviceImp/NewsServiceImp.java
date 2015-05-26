@@ -38,4 +38,9 @@ public class NewsServiceImp extends BaseService implements NewsService {
 			return false;
 	}
 
+	@Override
+	public boolean deleteNews(String newsid) {
+		return getNewsDao().deleteNews(newsid);
+	}
+
 }

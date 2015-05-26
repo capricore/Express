@@ -21,7 +21,7 @@
 	</select>
 
 	<insert id="addCompany" parameterClass="company">
-		insert into company values(#compid#,#compname#,#address#,#tel#,#email#,#crtime#,#pcompid#)
+		insert into company(compid,compname,address,tel,email,crtime,pcompid) values(#compid#,#compname#,#address#,#tel#,#email#,#crtime#,#pcompid#)
 		<selectKey resultClass="String" keyProperty="compid">  
   		 	 SELECT @@IDENTITY as compid  
  		 </selectKey> 

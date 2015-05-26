@@ -141,8 +141,8 @@
 		
 	  	function deleteRs(id){
             if (!confirm("确信要删除吗？")) return;
-            var url="/Express/reservation/delRs.do";
-            $.post(url,{rsid:id},function(data){
+            var url="/Express/news/delNews.do";
+            $.post(url,{newsid:id},function(data){
             	postDelRs(data);
             });
         }

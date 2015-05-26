@@ -42,19 +42,19 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<h3 class="page-title">
-							添加用户
+							添加电商
 						</h3>
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="index.html">主页</a> 
+								<a href="/Express">主页</a> 
 								<span class="icon-angle-right"></span>
 							</li>
 							<li>
-								<a href="#">会员风采</a>
+								<a>黑名单管理</a>
 								<span class="icon-angle-right"></span>
 							</li>
-							<li><a href="/Express/user/userList.do">添加公司</a></li>
+							<li><a >添加电商</a></li>
 						</ul>
 					</div>
 				</div>

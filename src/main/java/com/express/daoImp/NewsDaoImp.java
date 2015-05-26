@@ -78,4 +78,19 @@ public class NewsDaoImp extends BaseDao implements NewsDao{
 		return flag;
 	}
 
+	@Override
+	public boolean deleteNews(String newsid) {
+		Object object = null;
+		boolean flag = false;
+		try {
+			object =(Integer) getSqlMapClientTemplate().update("deleteNews", newsid);
+		} catch (Exception e) {
+			logger.error("删除新闻信息出错！" +  ",errMsg=" + e.getMessage());
+		}
+		if (object != null) {
+			flag = true;
+		}
+		return flag;
+	}
+
 }

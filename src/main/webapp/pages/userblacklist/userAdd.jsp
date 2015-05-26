@@ -42,19 +42,19 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<h3 class="page-title">
-							添加用户
+							添加员工
 						</h3>
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="index.html">主页</a> 
+								<a href="/Express">主页</a> 
 								<span class="icon-angle-right"></span>
 							</li>
 							<li>
-								<a href="#">会员风采</a>
+								<a >黑名单管理</a>
 								<span class="icon-angle-right"></span>
 							</li>
-							<li><a href="/Express/user/userList.do">添加公司</a></li>
+							<li><a >添加员工</a></li>
 						</ul>
 					</div>
 				</div>
@@ -63,7 +63,7 @@
 						<!-- BEGIN SAMPLE FORM PORTLET-->   
 						<div class="portlet box blue">
 							<div class="portlet-title">
-								<div class="caption"><i class="icon-reorder"></i>添加公司</div>
+								<div class="caption"><i class="icon-reorder"></i>添加员工</div>
 							</div>
 						<div class="portlet-body form">
 							<!-- BEGIN FORM-->

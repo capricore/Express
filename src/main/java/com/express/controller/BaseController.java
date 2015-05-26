@@ -23,11 +23,11 @@ import org.json.JSONObject;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.express.bean.UploadFile;
+import com.express.bean.RollingPicture;
+import com.express.bean.StaticPicture;
 import com.express.util.CodeGenerator;
 import com.express.util.CommonConst;
 import com.express.util.StringUtils;
-import com.express.util.SystemConfig;
 
 public class BaseController {
 	
@@ -39,9 +39,9 @@ public class BaseController {
 	 * isRelative:true：相对路径 false：绝对路径
 	 * return:List<UploadModel>
 	 */  
-	protected List<UploadFile> upload(HttpServletRequest request, HttpServletResponse response, Map map) throws Exception {
+	protected List<RollingPicture> upload(HttpServletRequest request, HttpServletResponse response, Map map) throws Exception {
 		try {
-			List<UploadFile> list = new ArrayList<UploadFile>();
+			List<RollingPicture> list = new ArrayList<RollingPicture>();
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			Iterator it = multipartRequest.getFileNames();
 			while (it.hasNext()) {
@@ -50,11 +50,10 @@ public class BaseController {
 				if (file.getOriginalFilename().length() > 0) {
 					String fileName = file.getOriginalFilename();
 					String extName = fileName.substring(fileName.lastIndexOf(".")).toLowerCase();
-					String fileId = CodeGenerator.createUUID();
-					String objectId = (String)map.get("id");
-					String newFileName = fileId + extName;
+					String id = (String) map.get("id");
+					String newFileName = id + extName;
 					String fullPath = "";
-					String rootPath = SystemConfig.getUpload_root_path();
+					String rootPath = CommonConst.UPLOAD_ROOT_PATH;
 					fullPath = rootPath + (String)map.get("path");
 					//如果目录不存在创建目录
 					File dirFile = new File(fullPath);
@@ -64,14 +63,44 @@ public class BaseController {
 					fullPath += "/" + newFileName;
 					File newFile = new File(fullPath);
 					file.transferTo(newFile);
-					UploadFile obj = new UploadFile();
-					obj.setFileid(fileId);
-					obj.setObjectid(objectId);
-					obj.setFilename(fileName);
-					obj.setFiledesc(key);
-					obj.setFiletype((String)map.get("type"));
-					obj.setFilepath((String)map.get("path")+ "/" + newFileName);
-					obj.setFilesize(newFile.length());
+					RollingPicture obj = new RollingPicture();
+					obj.setFilesrc((String)map.get("path")+ "/" + newFileName);
+					list.add(obj);
+				}
+			}
+			return list;
+		} catch (Exception e) {
+			//log.error(e.toString());
+			return new ArrayList();
+		}
+	}
+	
+	protected List<StaticPicture> uploadStaticPictures(HttpServletRequest request, HttpServletResponse response, Map map) throws Exception {
+		try {
+			List<StaticPicture> list = new ArrayList<StaticPicture>();
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+			Iterator it = multipartRequest.getFileNames();
+			while (it.hasNext()) {
+				String key = (String) it.next();
+				MultipartFile file = multipartRequest.getFile(key);
+				if (file.getOriginalFilename().length() > 0) {
+					String fileName = file.getOriginalFilename();
+					String extName = fileName.substring(fileName.lastIndexOf(".")).toLowerCase();
+					String id = (String) map.get("id");
+					String newFileName = id + extName;
+					String fullPath = "";
+					String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+					fullPath = rootPath + (String)map.get("path");
+					//如果目录不存在创建目录
+					File dirFile = new File(fullPath);
+					if (!dirFile.exists())
+						dirFile.mkdirs();
+					//创建文件
+					fullPath += "/" + newFileName;
+					File newFile = new File(fullPath);
+					file.transferTo(newFile);
+					StaticPicture obj = new StaticPicture();
+					obj.setPicturesrc((String)map.get("path")+ "/" + newFileName);
 					list.add(obj);
 				}
 			}

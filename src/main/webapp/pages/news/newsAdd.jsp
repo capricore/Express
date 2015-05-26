@@ -85,6 +85,9 @@
 										<div class="controls">
 											<select data-placeholder="请选择文章类别" class="chosen span6" tabindex="-1" id="selS0V" name="type">
 											<option value=""></option>
+											<option value="50">重要通告</option>
+											<option value="60">行业咨询</option>
+											<option value="70">行业统计</option>
 											<optgroup label="关于协会">
 												<option value="11">协会简介</option>
 												<option value="12">协会章程</option>

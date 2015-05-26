@@ -4,9 +4,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.express.dao.CompanyDao;
+import com.express.dao.RollingPictureDao;
 import com.express.dao.MercBlacklistDao;
 import com.express.dao.NewsDao;
 import com.express.dao.OrganizationBlacklistDao;
+import com.express.dao.StaticPictureDao;
 import com.express.dao.UserBlacklistDao;
 import com.express.dao.UserDao;
 
@@ -21,6 +23,10 @@ public class BaseService {
 	
 	private CompanyDao companyDao = (CompanyDao)context.getBean("companyDao");
 	
+	private RollingPictureDao rollingpictureDao = (RollingPictureDao)context.getBean("rollingpictureDao");
+	
+	private StaticPictureDao staticpictureDao = (StaticPictureDao)context.getBean("staticpictureDao");
+
 	private UserBlacklistDao userBlacklistDao = (UserBlacklistDao)context.getBean("userBlacklistDao");
 	
 	private MercBlacklistDao mercBlacklistDao = (MercBlacklistDao)context.getBean("mercBlacklistDao");
@@ -49,5 +55,13 @@ public class BaseService {
 	
 	public  CompanyDao getCompanyDao(){
 		return companyDao;
+	}
+
+	public RollingPictureDao getRollingpictureDao() {
+		return rollingpictureDao;
+	}
+	
+	public StaticPictureDao getStaticpictureDao() {
+		return staticpictureDao;
 	}
 }

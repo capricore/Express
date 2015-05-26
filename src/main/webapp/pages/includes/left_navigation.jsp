@@ -79,6 +79,36 @@
 				</li>
 				<li class="">
 					<a href="javascript:;">
+					<i class="icon-globe"></i> 
+					<span class="title">会员风采</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li >
+							<a href="/Express/news/list.do?newstype=4&subtype=1">最新活动</a>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="/Express/news/list.do?newstype=5&subtype=0">
+					<i class="icon-globe"></i> 
+					<span class="title">重要公告</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="/Express/news/list.do?newstype=6&subtype=0">
+					<i class="icon-globe"></i> 
+					<span class="title">行业咨询</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="/Express/news/list.do?newstype=7&subtype=0">
+					<i class="icon-globe"></i> 
+					<span class="title">行业统计</span>
+					</a>
+				</li>
+				<li class="">
+					<a href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">会员管理</span>
 					<span class="arrow "></span>
@@ -123,6 +153,36 @@
 						</li>
 						<li >
 							<a href="/Express/organizationblacklist/list.do">快递公司黑名单列表</a>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="javascript:;">
+					<i class="icon-sitemap"></i> 
+					<span class="title">滚动新闻管理</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li >
+							<a href="/Express/rollingpicture/fileAdd.do">添加滚动新闻</a>
+						</li>
+						<li >
+							<a href="/Express/rollingpicture/list.do">滚动新闻列表</a>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="javascript:;">
+					<i class="icon-sitemap"></i> 
+					<span class="title">图片管理</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li >
+							<a href="/Express/staticpicture/fileAdd.do">添加滚动图片</a>
+						</li>
+						<li >
+							<a href="/Express/staticpicture/list.do">滚动图片列表</a>
 						</li>
 					</ul>
 				</li>

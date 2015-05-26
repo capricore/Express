@@ -19,5 +19,8 @@ public interface NewsService {
     
     /* 更新新闻*/
     public boolean updateNews(News news);
+    
+    /* 删除新闻*/
+    public boolean deleteNews(String newsid);
 
 }

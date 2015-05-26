@@ -15,7 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.express.bean.Company;
 import com.express.bean.News;
 import com.express.service.NewsService;
 import com.express.util.CodeGenerator;
@@ -31,9 +30,9 @@ public class NewsController extends BaseController{
 	
 	private static final Logger logger = Logger.getLogger(NewsController.class);  
 	
-	private String[] NewsType = {"","关于协会","政策法规","行业公告","会员风采"};
+	private String[] NewsType = {"","关于协会","政策法规","行业公告","会员风采","重要公告","行业咨询","行业统计"};
 	private String[][] SubType = {{},{"","协会简介","协会章程","协会制度","协会成员"},{"","行业法律规范","部门规章","规范性文件","地方性法规","行业其它要求"}
-	,{"","统计报告","消费者申述通告","旺季消费"},{"","最新活动"}};
+	,{"","统计报告","消费者申述通告","旺季消费"},{"","最新活动"},{""},{""},{""}};
 	
 	/**
 	 * 保存文章
@@ -50,9 +49,6 @@ public class NewsController extends BaseController{
 			int newstype = type.charAt(0)-'0';
 			int subtype = type.charAt(1)-'0';
 			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());									//文章创建时间
-			System.out.println("title:"+title);
-			System.out.println("content:"+content);
-			System.out.println("newstype:"+newstype);
 			News news = new News();
 			news.setNewsid(CodeGenerator.createUUID());																//生成文章id
 			news.setTitle(title);				
@@ -182,6 +178,26 @@ public class NewsController extends BaseController{
 			System.out.println(e.getMessage());
 			outputJsonResponse(response, false, e.getMessage());
 			return null;
+		}
+	}
+	
+	/**
+	 * 删除新闻
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/delNews.do")
+	public void delNews(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		try{
+			String newsid = request.getParameter("newsid");	
+			newsService.deleteNews(newsid);
+			outputJsonResponse(response, true, "uploadSuccess");
+		}catch (RuntimeException e) {
+			logger.error("删除新闻出错！" +  ",errMsg=" + e.getMessage());
+			outputJsonResponse(response, false, e.getMessage());
 		}
 	}
 
