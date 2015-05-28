@@ -186,6 +186,21 @@
 						</li>
 					</ul>
 				</li>
+				<li class="">
+					<a href="javascript:;">
+					<i class="icon-sitemap"></i> 
+					<span class="title">下载中心管理</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li >
+							<a href="/Express/downloadzone/fileAdd.do">添加下载文件</a>
+						</li>
+						<li >
+							<a href="/Express/downloadzone/list.do">下载中心列表</a>
+						</li>
+					</ul>
+				</li>
 			</ul>
 		<!-- END SIDEBAR MENU -->
 		</div>
