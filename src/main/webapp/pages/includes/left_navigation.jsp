@@ -108,6 +108,12 @@
 					</a>
 				</li>
 				<li class="">
+					<a href="/Express/news/list.do?newstype=8&subtype=0">
+					<i class="icon-globe"></i> 
+					<span class="title">协会动态</span>
+					</a>
+				</li>
+				<li class="">
 					<a href="javascript:;">
 					<i class="icon-sitemap"></i> 
 					<span class="title">会员管理</span>
