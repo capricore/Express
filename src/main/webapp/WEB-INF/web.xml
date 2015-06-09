@@ -50,7 +50,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	</listener>
 
 	<welcome-file-list>
-		<welcome-file>admin/loginPage.do</welcome-file>
+		<welcome-file>news/newsAdd.do</welcome-file>
 	</welcome-file-list>
 	
 	<filter>  

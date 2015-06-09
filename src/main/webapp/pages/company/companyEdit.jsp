@@ -47,7 +47,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="index.html">主页</a> 
+								<a href="/Express/pages/news/newsAdd.jsp">主页</a> 
 								<span class="icon-angle-right"></span>
 							</li>
 							<li>

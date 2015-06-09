@@ -24,7 +24,7 @@ public class SecurityServlet extends HttpServlet implements Filter{
 		String username = (String)session.getAttribute("username");//µÇÂ¼ÈË½ÇÉ«
 		String servletPath = request.getServletPath(); 
 		String url=request.getRequestURI();  
-		if(url.indexOf("login") != -1 || url.indexOf("user") != -1){
+		if(url.indexOf("login") != -1 ){
 			arg2.doFilter(arg0, arg1);
 			return;
 		}

@@ -105,10 +105,10 @@
         	 var jresp = new JsonRespUtils(data);
         	 if (jresp.isSuccessfully()){
         		var returnUri = '/Express<%=session.getAttribute("returnUri")%>';
-        		if(returnUri =='' || returnUri.length == 0){
-        			location.href="/Express/pages/news/newsAdd.jsp";
+        		if(returnUri == "/Expressnull"){
+        			 window.location.href= "/Express/pages/news/newsAdd.jsp";
         		}else{
-    			    window.location.href= returnUri;
+        			 window.location.href= returnUri;
         		}
               }else{
             	  var res = jresp.getMessage();
