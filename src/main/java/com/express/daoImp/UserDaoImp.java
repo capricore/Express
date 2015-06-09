@@ -133,4 +133,14 @@ public class UserDaoImp extends BaseDao implements UserDao {
 		return userid;
 	}
 
+	public int getLevelByUserid(String userid) {
+		int level = 0;
+		try {
+			level = (int) getSqlMapClientTemplate().queryForObject("getLevelByUserid", userid);
+		} catch (Exception e) {
+			logger.error("根据userid获取用户权限信息出错！" + ",errMsg=" + e.getMessage());
+		}
+		return level;
+	}
+
 }

@@ -45,5 +45,10 @@
 	<select id="getUserIdbyLogin"  parameterClass="userQuery" resultClass="String">
 		select userid from user where username = #username# and passwd = #passwd#
 	</select>
+	
+	<!-- 根据userid获取用户权限 -->
+	<select id="getLevelByUserid" parameterClass="String" resultClass="int">
+		select level from user where userid=#userid#
+	</select>
 
 </sqlMap>  

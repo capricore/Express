@@ -43,4 +43,9 @@ public class UserServiceImp extends BaseService implements UserService{
 		return getUserDao().getUserIdbyLogin(username, passwd);
 	}
 
+	@Override
+	public int getLevelByUserid(String userid) {
+		return getUserDao().getLevelByUserid(userid);
+	}
+
 }
