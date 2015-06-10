@@ -67,7 +67,7 @@
 							</div>
 						<div class="portlet-body form">
 							<!-- BEGIN FORM-->
-							<form id="companyForm" action="/Express/company/update.do" class="form-horizontal" method="post" enctype="multipart/form-data" target="hidden_frame">
+							<form id="companyForm" action="/Express/company/save.do" class="form-horizontal" method="post" enctype="multipart/form-data" target="hidden_frame">
 								<div class="control-group">
 									<label class="control-label">公司名称</label>
 									<div class="controls">
