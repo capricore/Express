@@ -37,7 +37,7 @@
 				</li>
 				<li class="">
 					<a href="javascript:;">
-					<i class="icon-money"></i> 
+					<i class="icon-plus-sign"></i> 
 					<span class="title">政策法规</span>
 					<span class="arrow "></span>
 					</a>
@@ -61,7 +61,7 @@
 				</li>
 				<li class="">
 					<a href="javascript:;">
-					<i class="icon-globe"></i> 
+					<i class="icon-plus-sign"></i> 
 					<span class="title">行业公告</span>
 					<span class="arrow "></span>
 					</a>
@@ -79,7 +79,7 @@
 				</li>
 				<li class="">
 					<a href="javascript:;">
-					<i class="icon-globe"></i> 
+					<i class="icon-plus-sign"></i> 
 					<span class="title">会员风采</span>
 					<span class="arrow "></span>
 					</a>
@@ -91,25 +91,25 @@
 				</li>
 				<li class="">
 					<a href="/Express/news/list.do?newstype=5&subtype=0">
-					<i class="icon-globe"></i> 
+					<i class="icon-plus-sign"></i> 
 					<span class="title">重要公告</span>
 					</a>
 				</li>
 				<li class="">
 					<a href="/Express/news/list.do?newstype=6&subtype=0">
-					<i class="icon-globe"></i> 
+					<i class="icon-plus-sign"></i> 
 					<span class="title">行业咨询</span>
 					</a>
 				</li>
 				<li class="">
 					<a href="/Express/news/list.do?newstype=7&subtype=0">
-					<i class="icon-globe"></i> 
+					<i class="icon-plus-sign"></i> 
 					<span class="title">行业统计</span>
 					</a>
 				</li>
 				<li class="">
 					<a href="/Express/news/list.do?newstype=8&subtype=0">
-					<i class="icon-globe"></i> 
+					<i class="icon-plus-sign"></i> 
 					<span class="title">协会动态</span>
 					</a>
 				</li>
@@ -137,7 +137,7 @@
 				</li>
 				<li class="">
 					<a href="javascript:;">
-					<i class="icon-wrench"></i> 
+					<i class="icon-sitemap"></i> 
 					<span class="title">黑名单管理</span>
 					<span class="arrow "></span>
 					</a>
