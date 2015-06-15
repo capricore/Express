@@ -109,7 +109,7 @@
 								<div class="control-group">
 									<label class="control-label">滚动顺序</label>
 									<div class="controls">
-										<select class="span6 chosen" data-placeholder="选择滚动顺序" tabindex="1" name="sequence">
+										<select class="span6 chosen" data-placeholder="选择滚动顺序"  tabindex="-1" id="sequence" name="sequence">
 											<option value="1">1</option>
 											<option value="2">2</option>
 											<option value="3">3</option>
@@ -167,7 +167,7 @@
 		jQuery(document).ready(function() {       
 		   // initiate layout and plugins
 		   App.init();
-		   $("#position option[value='${ad.position}']").attr("selected",true);
+		   $("#sequence option[value='${pic.sequence}']").attr("selected",true);
 		   var rule={adname:{required:true},position:{required:true}};
 		   FormValidation.init($('#adForm'),rule,creatSubmitForm('adForm'),failedForm);
 		});
