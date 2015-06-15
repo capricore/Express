@@ -79,7 +79,7 @@
 											<td>${status.index+1}</td>
 											<td>
 												<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-													<img src="/upload${item.picturesrc}" alt="" style="width: 200px; height: 150px;" />
+													<img src="/epUpload${item.picturesrc}" alt="" style="width: 200px; height: 150px;" />
 												</div>
 											</td>
 											<td>${item.description}</td>

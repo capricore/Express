@@ -87,7 +87,7 @@
 									<div class="controls">
 										<div class="fileupload fileupload-new" data-provides="fileupload">
 											<div class="fileupload-new thumbnail" style="width: 250px; height: 150px;">
-												<img src="/upload${pic.picturesrc}" alt="" style="width: 250px; height: 150px;" />
+												<img src="/epUpload${pic.picturesrc}" alt="" style="width: 250px; height: 150px;" />
 											</div>
 											<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 											<div>

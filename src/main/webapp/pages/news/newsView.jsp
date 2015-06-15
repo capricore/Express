@@ -199,8 +199,8 @@
 				    	 if (jresp.isSuccessfully()){
 				    		 var res = jresp.getMessage();
 				    		alert("保存成功！");
-				    		location.reload();
 				    	 }
+				    	 location.reload();
 				    },
 				     error: function(transport) 
 				     {

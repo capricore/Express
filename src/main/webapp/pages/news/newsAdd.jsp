@@ -197,6 +197,7 @@
 				    		 var res = jresp.getMessage();
 				    		alert("保存成功！");
 				    	 }
+				    	 location.reload();
 				    },
 				     error: function(transport) 
 				     {

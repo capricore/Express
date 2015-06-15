@@ -77,7 +77,7 @@
 										<tr class="">
 											<td>${status.index+1}</td>
 											<td>${item.filename}</td>
-											<td><a  href="/upload${item.filesrc}">View</a></td>
+											<td><a  href="/epUpload${item.filesrc}">View</a></td>
 											<td><a  href="javascript:deleteAd('${item.id}')">Delete</a></td>
 										</tr>
 									</c:forEach>

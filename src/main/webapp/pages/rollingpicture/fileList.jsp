@@ -80,7 +80,7 @@
 											<td>${status.index+1}</td>
 											<td>
 												<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-													<img src="/upload${item.filesrc}" alt="" style="width: 200px; height: 150px;" />
+													<img src="/epUpload${item.filesrc}" alt="" style="width: 200px; height: 150px;" />
 												</div>
 											</td>
 											<td>${item.title}</td>
