@@ -121,7 +121,7 @@ public class BaseController {
 				String key = (String) it.next();
 				MultipartFile file = multipartRequest.getFile(key);
 				if (file.getOriginalFilename().length() > 0) {
-					String fileName = file.getOriginalFilename();
+					String fileName =new String(file.getOriginalFilename().getBytes("ISO-8859-1"),"UTF-8");
 					String extName = fileName.substring(fileName.lastIndexOf(".")).toLowerCase();
 					String id = (String) map.get("id");
 					String newFileName = id + extName;
