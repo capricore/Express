@@ -101,12 +101,22 @@
 									</div>
 								</div>	
 								<div class="control-group">
-									<label class="control-label">公司邮箱</label>
+									<label class="control-label">负责人</label>
 									<div class="controls">
-										<input id="email" type="text" class="span6 m-wrap" name="email" />
+										<input id="principal" type="text" class="span6 m-wrap" name="principal" />
 										<span class="help-inline">必填</span>
 									</div>
 								</div>	
+								<div class="control-group">
+									<label class="control-label">级别</label>
+									<div class="controls">
+										<select class="span6 m-wrap" data-placeholder="选择用户级别" tabindex="1" name="level">
+											<option value="3">管理员</option>
+											<option value="2">理事</option>
+											<option value="1">会员单位</option>
+										</select>
+									</div>
+								</div>
 							</form>
 							<div class="form-actions">
 								<button type="submit" class="btn blue" onclick="save();">提交</button>

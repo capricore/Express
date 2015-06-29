@@ -86,7 +86,7 @@
 									<label class="control-label">所属主公司名称</label>
 									<div class="controls">
 										<select class="span6 m-wrap chosen" data-placeholder="选择主公司" tabindex="1" name="pcompid">
-											<option value="null">无</option>
+											<option value="${compid}">${compname}</option>
 											<c:forEach items="${compList}" var="item" varStatus="status">
 												<option value="${item.compid}">${item.compname}</option>
 											</c:forEach>
@@ -100,9 +100,19 @@
 									</div>
 								</div>	
 								<div class="control-group">
-									<label class="control-label">公司邮箱</label>
+									<label class="control-label">负责人</label>
 									<div class="controls">
-										<input id="email" type="text"  class="span6 m-wrap" name="email" value="${company.email}" />
+										<input id="principal" type="text"  class="span6 m-wrap" name="principal" value="${company.principal}" />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">级别</label>
+									<div class="controls">
+										<select id="level" class="span6 m-wrap" data-placeholder="选择用户级别" tabindex="1" name="level">
+											<option value="3">管理员</option>
+											<option value="2">理事</option>
+											<option value="1">会员单位</option>
+										</select>
 									</div>
 								</div>
 							</form>
@@ -153,7 +163,7 @@
 		jQuery(document).ready(function() {       
 		   // initiate layout and plugins
 		   App.init();
-		   $("#level option[value='${user.level}']").attr("selected",true);
+		   $("#level option[value='${level}']").attr("selected",true);
 		});
 		
 		function submitById(id){			

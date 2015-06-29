@@ -44,11 +44,13 @@ public class CompanyController extends BaseController{
 			String address = new String(request.getParameter("address").getBytes("ISO-8859-1"),"UTF-8");		
 			String pcompid = request.getParameter("pcompid");
 			String tel = request.getParameter("tel");
-			String email = request.getParameter("email");
+			String principal = new String(request.getParameter("principal").getBytes("ISO-8859-1"),"UTF-8");
+			int level = Integer.parseInt(request.getParameter("level"));
 			Company company = new Company();
 			company.setCompid(CodeGenerator.createUUID());
 			company.setCompname(compname);
 			company.setAddress(address);
+			company.setLevel(level);
 			if (pcompid.equals("null")) {
 				company.setPcompid(null);
 			}else {
@@ -56,7 +58,7 @@ public class CompanyController extends BaseController{
 			}
 			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());	
 			company.setCrtime(crtime);
-			company.setEmail(email);		
+			company.setPrincipal(principal);	
 			company.setTel(tel);
 			compService.addCompany(company);
 			outputJsonResponse(response, true, "uploadSuccess");
@@ -99,12 +101,14 @@ public class CompanyController extends BaseController{
 			String compname = new String(request.getParameter("compname").getBytes("ISO-8859-1"),"UTF-8");		
 			String address = new String(request.getParameter("address").getBytes("ISO-8859-1"),"UTF-8");				
 			String tel = request.getParameter("tel");
-			String email = request.getParameter("email");
+			String principal = new String(request.getParameter("principal").getBytes("ISO-8859-1"),"UTF-8");		
 			String pcompid = request.getParameter("pcompid");
+			int level = Integer.parseInt(request.getParameter("level"));
 			Company company = new Company();
 			company.setCompid(compid);
 			company.setCompname(compname);
 			company.setAddress(address);
+			company.setLevel(level);
 			if (pcompid.equals("null")) {
 				company.setPcompid(null);
 			}else {
@@ -112,7 +116,7 @@ public class CompanyController extends BaseController{
 			}
 			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());	
 			company.setCrtime(crtime);
-			company.setEmail(email);		
+			company.setPrincipal(principal);		
 			company.setTel(tel);
 			compService.updateCompany(company);
 			outputJsonResponse(response, true, "uploadSuccess");
@@ -134,6 +138,14 @@ public class CompanyController extends BaseController{
 		try{
 			String compid = request.getParameter("compid");													
 			Company company = compService.getByCompanyId(compid);
+			String level = new String();
+			if (company.getLevel() == 1) {
+				level = "会员单位";
+			}else if (company.getLevel() == 2) {
+				level = "理事";
+			}else if (company.getLevel() == 3) {
+				level = "管理员";
+			}
 			String pcompname = new String();
 			if (company.getPcompid() != null) {
 				Company pCompany = compService.getByCompanyId(company.getPcompid());
@@ -142,6 +154,7 @@ public class CompanyController extends BaseController{
 			Map map = new HashMap();
 			map.put("pcompname", pcompname);
 			map.put("company", company);
+			map.put("level", level);
 			return new ModelAndView("company/companyView").addAllObjects(map);
 		}catch (RuntimeException e) {
 			System.out.println(e.getMessage());
@@ -164,14 +177,22 @@ public class CompanyController extends BaseController{
 			String compid = request.getParameter("compid");														
 			Company company = compService.getByCompanyId(compid);
 			List<Company> compList = compService.getMainCompanyList();
-			String pcompname = new String();
+			String pcompname = "无";//主公司名称
 			if (company.getPcompid() != null) {
 				Company pCompany = compService.getByCompanyId(company.getPcompid());
 				pcompname = pCompany.getCompname();
 			}
+			for(int i=0;i<compList.size();i++){
+				if(compList.get(i).getCompid().equals(company.getPcompid()))
+					compList.remove(i);
+			}
+			String level = company.getLevel()+"";
 			Map map = new HashMap();
 			map.put("compList", compList);
 			map.put("company", company);
+			map.put("level", level);
+			map.put("compid", compid);
+			map.put("compname", pcompname);
 			return new ModelAndView("company/companyEdit").addAllObjects(map);
 		}catch (RuntimeException e) {
 			logger.error("根据compid获取编辑公司信息出错！" +  ",errMsg=" + e.getMessage());

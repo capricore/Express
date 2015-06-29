@@ -49,13 +49,13 @@ public class UserController extends BaseController{
 			String password = request.getParameter("password");			//password
 			String compid = request.getParameter("compid");
 			String phone = request.getParameter("phone");
-			String email = request.getParameter("email");
+			String linkman = new String(request.getParameter("linkman").getBytes("ISO-8859-1"),"UTF-8");
 			int level = Integer.parseInt(request.getParameter("level"));
 			User user = new User();
 			user.setCompid(compid);
 			user.setUsername(username);
 			user.setPasswd(password);
-			user.setEmail(email);
+			user.setLinkman(linkman);
 			user.setPhone(phone);
 			user.setLevel(level);
 			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());								
@@ -103,13 +103,13 @@ public class UserController extends BaseController{
 			String password = request.getParameter("password");			//password
 			String compid = request.getParameter("compid");
 			String phone = request.getParameter("phone");
-			String email = request.getParameter("email");
+			String linkman = new String(request.getParameter("linkman").getBytes("ISO-8859-1"),"UTF-8");
 			int level = Integer.parseInt(request.getParameter("level"));
 			User user = new User();
 			user.setCompid(compid);
 			user.setUsername(username);
 			user.setPasswd(password);
-			user.setEmail(email);
+			user.setLinkman(linkman);
 			user.setPhone(phone);
 			user.setLevel(level);
 			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());
@@ -172,9 +172,19 @@ public class UserController extends BaseController{
 			String userid = request.getParameter("userid");													
 			User user = userService.getByUserId(userid);
 			List<Company> compList = compService.getCompanyList();
+			for(int i=0;i<compList.size();i++){
+				if(compList.get(i).getCompid().equals(user.getCompid()))
+					compList.remove(i);
+			}
+			String level = user.getLevel()+"";
+			String compid = user.getCompid();
+			String compname = compService.getByCompanyId(compid).getCompname();
 			Map map = new HashMap();
 			map.put("compList", compList);
 			map.put("user", user);
+			map.put("level", level);
+			map.put("compid", compid);
+			map.put("compname", compname);
 			return new ModelAndView("user/userEdit").addAllObjects(map);
 		}catch (RuntimeException e) {
 			logger.error("根据userid获取编辑用户信息出错！" +  ",errMsg=" + e.getMessage());

@@ -100,9 +100,9 @@
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">邮箱</label>
+									<label class="control-label">联系人</label>
 									<div class="controls">
-										<input id="email" type="text" class="span6 m-wrap" name="email" />
+										<input id="linkman" type="text" class="span6 m-wrap" name="linkman" />
 										<span class="help-inline">必填</span>
 									</div>
 								</div>

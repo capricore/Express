@@ -14,8 +14,20 @@ public class Company {
 
 	private String tel; 			// 公司固话
 	
-	private String email;			// 公司邮箱
+	private String principal;	    // 负责人
 	
+	private Timestamp  crtime;		// 公司添加时间
+	
+	private int  level;				// 公司级别
+	
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 	public String getPcompid() {
 		return pcompid;
 	}
@@ -23,8 +35,6 @@ public class Company {
 	public void setPcompid(String pcompid) {
 		this.pcompid = pcompid;
 	}
-
-	private Timestamp  crtime;			// 公司添加时间
 
 	public String getCompid() {
 		return compid;
@@ -58,12 +68,12 @@ public class Company {
 		this.tel = tel;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getPrincipal() {
+		return principal;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPrincipal(String principal) {
+		this.principal = principal;
 	}
 
 	public Timestamp getCrtime() {

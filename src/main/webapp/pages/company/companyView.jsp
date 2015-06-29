@@ -89,11 +89,17 @@
 									</div>
 								</div>	
 								<div class="control-group">
-									<label class="control-label">公司邮箱</label>
+									<label class="control-label">负责人</label>
 									<div class="controls">
-										<input id="email" type="text" readonly="true" class="span6 m-wrap" name="email" value="${company.email}" />
+										<input id="principal" type="text" readonly="true" class="span6 m-wrap" name="principal" value="${company.principal}" />
 									</div>
 								</div>	
+								<div class="control-group">
+									<label class="control-label">公司级别</label>
+									<div class="controls">
+										<input id="level" type="text" readonly="true" class="span6 m-wrap" name="level" value="${level}" />
+									</div>
+								</div>
 							</form>
 						</div>
 						</div>

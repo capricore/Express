@@ -14,7 +14,7 @@ public class User {
 
 	private String phone; 		// 用户手机号码
 
-	private String email; 		// 用户邮箱
+	private String linkman; 		// 用户邮箱
 
 	private int level; 			// 用户权限，0：普通，1：单位，2：理事，3：管理员
 
@@ -60,12 +60,12 @@ public class User {
 		this.phone = phone;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getLinkman() {
+		return linkman;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setLinkman(String linkman) {
+		this.linkman = linkman;
 	}
 
 	public int getLevel() {

@@ -89,9 +89,9 @@
 									</div>
 								</div>	
 								<div class="control-group">
-									<label class="control-label">邮箱</label>
+									<label class="control-label">联系人</label>
 									<div class="controls">
-										<input id="email" type="text" readonly="true" class="span6 m-wrap" name="email" value="${user.email}" />
+										<input id="linkman" type="text" readonly="true" class="span6 m-wrap" name="linkman" value="${user.linkman}" />
 									</div>
 								</div>	
 								<div class="control-group">
