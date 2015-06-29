@@ -70,7 +70,7 @@
 							<a href="/Express/news/list.do?newstype=3&subtype=1">统计报告</a>
 						</li>
 						<li >
-							<a href="/Express/news/list.do?newstype=3&subtype=2">消费者申诉通告</a>
+							<a href="/Express/news/list.do?newstype=3&subtype=2">消费者申诉</a>
 						</li>
 						<li >
 							<a href="/Express/news/list.do?newstype=3&subtype=3">旺季消费</a>
@@ -98,7 +98,7 @@
 				<li class="">
 					<a href="/Express/news/list.do?newstype=6&subtype=0">
 					<i class="icon-plus-sign"></i> 
-					<span class="title">行业咨询</span>
+					<span class="title">行业资讯</span>
 					</a>
 				</li>
 				<li class="">
