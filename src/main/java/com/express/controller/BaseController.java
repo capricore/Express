@@ -20,12 +20,16 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.express.bean.Downloadzone;
 import com.express.bean.RollingPicture;
 import com.express.bean.StaticPicture;
+import com.express.bean.SysConfig;
 import com.express.util.CodeGenerator;
 import com.express.util.CommonConst;
 import com.express.util.StringUtils;
@@ -33,6 +37,9 @@ import com.express.util.StringUtils;
 public class BaseController {
 	
 	protected Log log = LogFactory.getLog(this.getClass());
+	
+	ApplicationContext context = new ClassPathXmlApplicationContext("classpath:/applicationContext.xml");
+	private SysConfig sysConfig = (SysConfig)context.getBean("sysConfig");
 	
 	/*
 	 * 多文件上传
@@ -54,7 +61,8 @@ public class BaseController {
 					String id = (String) map.get("id");
 					String newFileName = id + extName;
 					String fullPath = "";
-					String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+//					String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+					String rootPath = sysConfig.getRootPath();
 					fullPath = rootPath + (String)map.get("path");
 					//如果目录不存在创建目录
 					File dirFile = new File(fullPath);
@@ -90,7 +98,8 @@ public class BaseController {
 					String id = (String) map.get("id");
 					String newFileName = id + extName;
 					String fullPath = "";
-					String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+//					String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+					String rootPath = sysConfig.getRootPath();
 					fullPath = rootPath + (String)map.get("path");
 					//如果目录不存在创建目录
 					File dirFile = new File(fullPath);
@@ -126,7 +135,8 @@ public class BaseController {
 					String id = (String) map.get("id");
 					String newFileName = id + extName;
 					String fullPath = "";
-					String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+//					String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+					String rootPath = sysConfig.getRootPath();
 					fullPath = rootPath + (String)map.get("path");
 					//如果目录不存在创建目录
 					File dirFile = new File(fullPath);
@@ -162,7 +172,8 @@ public class BaseController {
 		BufferedInputStream inputStream = null;
 		BufferedOutputStream outputStream = null;
 		try {
-			String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+//			String rootPath = CommonConst.UPLOAD_ROOT_PATH;
+			String rootPath = sysConfig.getRootPath();
 			inputStream = new BufferedInputStream(new FileInputStream(rootPath + filePath));
 			outputStream = new BufferedOutputStream(response.getOutputStream());
 			byte[] buff = new byte[2048];

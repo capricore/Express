@@ -73,4 +73,8 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 		</property>
 	</bean>
 	
+	<bean id="sysConfig" class="com.express.bean.SysConfig">
+		<property name="rootPath" value="D:/apache-tomcat-7.0.54/webapps/epUpload" />
+	</bean>
+	
 </beans>
