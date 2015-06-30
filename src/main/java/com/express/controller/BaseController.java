@@ -20,7 +20,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,7 +30,6 @@ import com.express.bean.RollingPicture;
 import com.express.bean.StaticPicture;
 import com.express.bean.SysConfig;
 import com.express.util.CodeGenerator;
-import com.express.util.CommonConst;
 import com.express.util.StringUtils;
 
 public class BaseController {
