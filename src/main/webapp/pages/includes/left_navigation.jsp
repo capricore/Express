@@ -62,7 +62,7 @@
 				<li class="">
 					<a href="javascript:;">
 					<i class="icon-plus-sign"></i> 
-					<span class="title">行业公告</span>
+					<span class="title">行业统计</span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
@@ -70,24 +70,15 @@
 							<a href="/Express/news/list.do?newstype=3&subtype=1">统计报告</a>
 						</li>
 						<li >
-							<a href="/Express/news/list.do?newstype=3&subtype=2">消费者申诉</a>
-						</li>
-						<li >
-							<a href="/Express/news/list.do?newstype=3&subtype=3">旺季消费</a>
+							<a href="/Express/news/list.do?newstype=3&subtype=2">申诉通告</a>
 						</li>
 					</ul>
 				</li>
 				<li class="">
-					<a href="javascript:;">
+					<a href="/Express/news/list.do?newstype=4&subtype=0">
 					<i class="icon-plus-sign"></i> 
 					<span class="title">会员风采</span>
-					<span class="arrow "></span>
 					</a>
-					<ul class="sub-menu">
-						<li >
-							<a href="/Express/news/list.do?newstype=4&subtype=1">最新活动</a>
-						</li>
-					</ul>
 				</li>
 				<li class="">
 					<a href="/Express/news/list.do?newstype=5&subtype=0">
@@ -99,12 +90,6 @@
 					<a href="/Express/news/list.do?newstype=6&subtype=0">
 					<i class="icon-plus-sign"></i> 
 					<span class="title">行业资讯</span>
-					</a>
-				</li>
-				<li class="">
-					<a href="/Express/news/list.do?newstype=7&subtype=0">
-					<i class="icon-plus-sign"></i> 
-					<span class="title">行业统计</span>
 					</a>
 				</li>
 				<li class="">

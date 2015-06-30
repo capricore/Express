@@ -68,6 +68,7 @@
 									<tr>
 										<th>编号</th>
 										<th>文件名</th>
+										<th>级别</th>
 										<th>浏览</th>
 										<th>删除</th>
 									</tr>
@@ -77,6 +78,7 @@
 										<tr class="">
 											<td>${status.index+1}</td>
 											<td>${item.filename}</td>
+											<td><c:choose><c:when test="${item.level=='1'}">需要登录</c:when><c:otherwise>不需要登录</c:otherwise></c:choose></td>
 											<td><a  href="/epUpload${item.filesrc}">View</a></td>
 											<td><a  href="javascript:deleteAd('${item.id}')">Delete</a></td>
 										</tr>

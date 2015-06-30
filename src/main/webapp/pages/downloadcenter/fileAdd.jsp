@@ -92,6 +92,15 @@
 										</div>
 									</div>
 								</div>
+								<div class="control-group">
+									<label class="control-label">文件类型</label>
+									<div class="controls">
+										<select class="span6 m-wrap" data-placeholder="选择文件级别" tabindex="1" name="level">
+											<option value="1">需要登录</option>
+											<option value="2">不需要登录</option>
+										</select>
+									</div>
+								</div>
 								<div class="form-actions">
 									<button type="submit" class="btn blue">提交</button>
 									<button type="reset" class="btn">取消</button>                            

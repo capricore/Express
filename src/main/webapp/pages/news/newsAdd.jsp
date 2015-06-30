@@ -85,10 +85,6 @@
 										<div class="controls">
 											<select data-placeholder="请选择文章类别" class="chosen span6" tabindex="-1" id="selS0V" name="type">
 											<option value=""></option>
-											<option value="50">重要通告</option>
-											<option value="60">行业资讯</option>
-											<option value="70">行业统计</option>
-											<option value="80">协会动态</option>
 											<optgroup label="关于协会">
 												<option value="11">协会简介</option>
 												<option value="12">协会章程</option>
@@ -102,14 +98,14 @@
 												<option value="24">地方性法规</option>
 												<option value="25">行业其它要求</option>
 											</optgroup>
-											<optgroup label="行业公告">
-												<option value="31">邮政统计报告</option>
-												<option value="32">消费者申述通告</option>
-												<option value="33">旺季消费提示</option>
+											<optgroup label="行业统计">
+												<option value="31">统计报告</option>
+												<option value="32">申述通告</option>
 											</optgroup>
-											<optgroup label="会员风采">
-												<option value="41">最新活动</option>
-											</optgroup>
+											<option value="40">会员风采</option>
+											<option value="50">重要通告</option>
+											<option value="60">行业资讯</option>
+											<option value="80">协会动态</option>
 										</select>
 									</div>
 								</div>

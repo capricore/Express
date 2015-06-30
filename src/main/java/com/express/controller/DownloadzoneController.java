@@ -35,6 +35,8 @@ public class DownloadzoneController extends BaseController{
 		try{
 			String path = CommonConst.DZ_FILE_PATH;													//文件主图路径
 			String id = CodeGenerator.createUUID();
+			int level = Integer.valueOf(request.getParameter("level"));
+			
 			Map<String,String> map = new HashMap<String,String>();
 			map.put("id", id);
 			map.put("path", path);
@@ -47,6 +49,7 @@ public class DownloadzoneController extends BaseController{
 				Downloadzone f = list.get(0);
 				file.setFilesrc(f.getFilesrc());
 				file.setFilename(f.getFilename());
+				file.setLevel(level);
 			}
 			downloadzoneService.addDownloadzone(file);
 			outputJsonResponse(response, true, "uploadSuccess");
@@ -62,7 +65,7 @@ public class DownloadzoneController extends BaseController{
 			List<Downloadzone> list = downloadzoneService.getFileList();
 			Map map = new HashMap();
 			map.put("fileList", list);
-			return new ModelAndView("downloadzone/fileList").addAllObjects(map);
+			return new ModelAndView("downloadcenter/fileList").addAllObjects(map);
 		}catch (RuntimeException e) {
 			outputJsonResponse(response, false, e.getMessage());
 			logger.error("获取文件列表信息出错！" +  ",errMsg=" + e.getMessage());
@@ -73,7 +76,7 @@ public class DownloadzoneController extends BaseController{
 	@RequestMapping("/fileAdd.do")
 	public ModelAndView addFile(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try{
-			ModelAndView view = new ModelAndView("downloadzone/fileAdd");
+			ModelAndView view = new ModelAndView("downloadcenter/fileAdd");
 			return view;
 		}catch (RuntimeException e) { 
 			logger.error("获取添加文件信息列表出错！" +  ",errMsg=" + e.getMessage());
