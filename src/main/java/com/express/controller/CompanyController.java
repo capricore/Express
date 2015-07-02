@@ -176,15 +176,25 @@ public class CompanyController extends BaseController{
 		try{
 			String compid = request.getParameter("compid");														
 			Company company = compService.getByCompanyId(compid);
-			List<Company> compList = compService.getMainCompanyList();
+			List<Company> compList =  new ArrayList<Company>();
+			if (company.getPcompid() != null) {
+				Company nullCom = new Company();
+				nullCom.setCompid("null");
+				nullCom.setCompname("无");
+				compList.add(nullCom);
+			}
+			compList.addAll(compService.getMainCompanyList());
 			String pcompname = "无";//主公司名称
 			if (company.getPcompid() != null) {
 				Company pCompany = compService.getByCompanyId(company.getPcompid());
 				pcompname = pCompany.getCompname();
+				
 			}
 			for(int i=0;i<compList.size();i++){
-				if(compList.get(i).getCompid().equals(company.getPcompid()))
+				if(compList.get(i).getCompid().equals(company.getPcompid())){
 					compList.remove(i);
+					break;
+				}
 			}
 			String level = company.getLevel()+"";
 			Map map = new HashMap();
