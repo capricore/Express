@@ -18,6 +18,8 @@ public class User {
 
 	private int level; 			// 用户权限，0：普通，1：单位，2：理事，3：管理员
 
+	private int company; 		// 公司大类:1管局,2杭州快递协会，3：邮政，4：顺丰，5：申通，6：圆通，7：中通，8：韵达，9：天天，10：汇通，11：国通，12：德邦，13：外资，14，单一，15：其他,
+	
 	private Timestamp restime; 		// 用户注册时间
 
 	public String getUserid() {
@@ -26,6 +28,14 @@ public class User {
 
 	public void setUserid(String userid) {
 		this.userid = userid;
+	}
+
+	public int getCompany() {
+		return company;
+	}
+
+	public void setCompany(int company) {
+		this.company = company;
 	}
 
 	public String getCompid() {

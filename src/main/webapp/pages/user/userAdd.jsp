@@ -117,6 +117,29 @@
 										</select>
 									</div>
 								</div>
+								
+								<div class="control-group">
+									<label class="control-label">公司所属大类</label>
+									<div class="controls">
+										<select class="span6 m-wrap" data-placeholder="选择公司类别" tabindex="1" name="company">
+											<option value="1">杭州市邮政管理局</option>
+											<option value="2">杭州市快递行业协会</option>
+											<option value="3">浙江省邮政速递物流有限公司杭州分公司</option>
+											<option value="4">顺丰</option>
+											<option value="5">申通</option>
+											<option value="6">圆通</option>
+											<option value="7">中通</option>
+											<option value="8">韵达</option>
+											<option value="9">天天</option>
+											<option value="10">汇通</option>
+											<option value="11">国通</option>
+											<option value="12">德邦</option>
+											<option value="13">外资</option>
+											<option value="14">单一</option>
+											<option value="15">其他</option>
+										</select>
+									</div>
+								</div>
 							</form>
 							<div class="form-actions">
 								<button type="submit" class="btn blue" onclick="save();">提交</button>

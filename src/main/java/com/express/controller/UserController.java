@@ -36,6 +36,9 @@ public class UserController extends BaseController{
 	private static final Logger logger = Logger.getLogger(UserController.class);  
 	
 	
+	private String[] Company = { "","杭州市邮政管理局", "杭州市快递行业协会","浙江省邮政速递物流有限公司杭州分公司", "顺丰", "申通", "圆通", "中通", "韵达", "天天",
+			"汇通", "国通", "德邦", "外资", "单一", "其他"  };
+	
 	/**
 	 * 保存用户
 	 * @param request
@@ -49,6 +52,7 @@ public class UserController extends BaseController{
 			String password = request.getParameter("password");			//password
 			String compid = request.getParameter("compid");
 			String phone = request.getParameter("phone");
+			String company = request.getParameter("company");
 			String linkman = new String(request.getParameter("linkman").getBytes("ISO-8859-1"),"UTF-8");
 			int level = Integer.parseInt(request.getParameter("level"));
 			User user = new User();
@@ -57,6 +61,7 @@ public class UserController extends BaseController{
 			user.setPasswd(password);
 			user.setLinkman(linkman);
 			user.setPhone(phone);
+			user.setCompany(Integer.valueOf(company));
 			user.setLevel(level);
 			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());								
 			user.setRestime(crtime);
@@ -103,6 +108,7 @@ public class UserController extends BaseController{
 			String password = request.getParameter("password");			//password
 			String compid = request.getParameter("compid");
 			String phone = request.getParameter("phone");
+			String company = request.getParameter("company");
 			String linkman = new String(request.getParameter("linkman").getBytes("ISO-8859-1"),"UTF-8");
 			int level = Integer.parseInt(request.getParameter("level"));
 			User user = new User();
@@ -111,6 +117,7 @@ public class UserController extends BaseController{
 			user.setPasswd(password);
 			user.setLinkman(linkman);
 			user.setPhone(phone);
+			user.setCompany(Integer.valueOf(company));
 			user.setLevel(level);
 			Timestamp crtime = Timestamp.valueOf(DateUtils.getCurrDateTimeStr());
 			user.setRestime(crtime);
@@ -137,6 +144,7 @@ public class UserController extends BaseController{
 			User user = userService.getByUserId(userid);
 			Company company = compService.getByCompanyId(user.getCompid());
 			String level = new String();
+			String category = Company[user.getCompany()];
 			if (user.getLevel() == 0) {
 				level = "普通会员";
 			}else if (user.getLevel() == 1) {
@@ -148,6 +156,7 @@ public class UserController extends BaseController{
 			}
 			Map map = new HashMap();
 			map.put("company", company);
+			map.put("category", category);
 			map.put("user", user);
 			map.put("level", level);
 			return new ModelAndView("user/userView").addAllObjects(map);
@@ -177,6 +186,7 @@ public class UserController extends BaseController{
 					compList.remove(i);
 			}
 			String level = user.getLevel()+"";
+			String company = user.getCompany()+"";
 			String compid = user.getCompid();
 			String compname = compService.getByCompanyId(compid).getCompname();
 			Map map = new HashMap();
@@ -184,6 +194,7 @@ public class UserController extends BaseController{
 			map.put("user", user);
 			map.put("level", level);
 			map.put("compid", compid);
+			map.put("company", company);
 			map.put("compname", compname);
 			return new ModelAndView("user/userEdit").addAllObjects(map);
 		}catch (RuntimeException e) {

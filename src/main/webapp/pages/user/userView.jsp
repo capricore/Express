@@ -100,6 +100,12 @@
 										<input id="level" type="text" readonly="true" class="span6 m-wrap" name="level" value="${level}" />
 									</div>
 								</div>
+								<div class="control-group">
+									<label class="control-label">公司所属大类</label>
+									<div class="controls">
+										<input id="category" type="text" readonly="true" class="span6 m-wrap" name=category value="${category}" />
+									</div>
+								</div>
 							</form>
 						</div>
 						</div>
