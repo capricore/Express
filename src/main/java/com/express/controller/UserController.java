@@ -36,7 +36,7 @@ public class UserController extends BaseController{
 	private static final Logger logger = Logger.getLogger(UserController.class);  
 	
 	
-	private String[] Company = { "","杭州市邮政管理局", "杭州市快递行业协会","浙江省邮政速递物流有限公司杭州分公司", "顺丰", "申通", "圆通", "中通", "韵达", "天天",
+	private String[] Company = { "","杭州市邮政管理局", "杭州市快递行业协会","邮政", "顺丰", "申通", "圆通", "中通", "韵达", "天天",
 			"汇通", "国通", "德邦", "外资", "单一", "其他"  };
 	
 	/**

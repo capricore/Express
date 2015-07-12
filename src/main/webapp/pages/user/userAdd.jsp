@@ -124,7 +124,7 @@
 										<select class="span6 m-wrap" data-placeholder="选择公司类别" tabindex="1" name="company">
 											<option value="1">杭州市邮政管理局</option>
 											<option value="2">杭州市快递行业协会</option>
-											<option value="3">浙江省邮政速递物流有限公司杭州分公司</option>
+											<option value="3">邮政</option>
 											<option value="4">顺丰</option>
 											<option value="5">申通</option>
 											<option value="6">圆通</option>
